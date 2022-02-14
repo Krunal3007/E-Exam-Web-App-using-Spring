@@ -8,6 +8,14 @@
 </head>
 <body>
 <h2>SignUp</h2>
+<form action="saveuser" method="post">
+	First Name:<input type="text" name="firstName"> <br><br>
+	Email :<input type="email" name="email"> <br><br>
+	Password :<input type="password" name="password"> <br><br>
+	
+	<input type="submit" value="Submit">
+
+</form>
 
 </body>
 </html>

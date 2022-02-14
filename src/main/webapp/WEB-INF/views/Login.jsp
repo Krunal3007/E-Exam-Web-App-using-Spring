@@ -9,5 +9,12 @@
 <body>
 <h2>Login</h2>
 
+	<form action="loginuser" , method="post">
+	
+	Email :<input type="email" name="loginEmail">
+	Password :<input type="password" name="loginPassword">
+	<input type="submit" value="Login">
+	</form>
+
 </body>
 </html>

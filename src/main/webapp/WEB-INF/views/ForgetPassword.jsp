@@ -9,5 +9,11 @@
 <body>
 <h2>ForgetPassword</h2>
 
+<form action="emailforpass" method="post">
+	Email : <input type="email" name="newEmail" >
+	
+	<input type="submit" value="Submit">
+</form>
+
 </body>
 </html>
