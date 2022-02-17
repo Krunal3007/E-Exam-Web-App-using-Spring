@@ -29,4 +29,8 @@ public class RoleDao {
 		return roles;
 	}
 	
+	public void deleteRole(int roleId) {
+		stmt.update("delete from role where roleid= ?",roleId);
+	}
+	
 }
