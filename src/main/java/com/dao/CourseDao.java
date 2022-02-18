@@ -28,6 +28,20 @@ public class CourseDao {
 	}
 	
 	public void deleteCourse(int courseId) {
-		stmt.update("delete from course where courseId = ?",courseId);
+		stmt.update("delete from course where courseid = ?",courseId);
+	}
+	
+	public CourseBean getCourseById(int courseId) {
+		
+		CourseBean course = stmt.queryForObject("select * from course where courseid = ?", 
+				new BeanPropertyRowMapper<CourseBean>(CourseBean.class),new Object[] {courseId} );
+		
+		return course;
+	}
+	
+	public void updateCourse(CourseBean course) {
+		
+		stmt.update("update course set coursename = ?,description = ?,isactive=? where courseid=?",
+				course.getCourseName(),course.getDescription(),course.getIsActive(),course.getCourseId());
 	}
 }

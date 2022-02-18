@@ -29,7 +29,9 @@
 <td>${course.courseName}</td>
 <td>${course.isActive}</td>
 <td>${course.description}</td>
-<td><a href="deletecourse/${course.courseId}">Delete</a></td>
+<td><a href="deletecourse/${course.courseId}">Delete</a> |
+	<a href="editcourse?courseId=${course.courseId}">Edit</a>
+</td>
 
 </tr>
 

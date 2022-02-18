@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.CourseBean;
 import com.dao.CourseDao;
@@ -49,6 +50,23 @@ public class CourseController {
 	public String deleteCourse(@PathVariable("courseId") int courseId) {
 		
 		courseDao.deleteCourse(courseId);
+		
+		return "redirect:/listcourses";
+	}
+	
+	@GetMapping("/editcourse")
+	public String editCourse(@RequestParam("courseId") int courseId,Model model) {
+		
+		CourseBean course = courseDao.getCourseById(courseId);
+		model.addAttribute("course",course);
+		
+		return "EditCourse";
+	}
+	
+	@PostMapping("/updatecourse")
+	public String updateCourse(CourseBean course) {
+		
+		courseDao.updateCourse(course);
 		
 		return "redirect:/listcourses";
 	}
