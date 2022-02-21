@@ -11,7 +11,7 @@
 
 <form action="savecourse" method="post">
  Course Name : <input type="text" name="courseName"> <br><br>
- Is Active : <input type="number" name="isActive"> <br><br>
+
  Description : <textarea rows="4" cols="50" name="description"></textarea> <br><br>
  <input type="submit" value="Submit">
 </form>

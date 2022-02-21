@@ -17,7 +17,7 @@ public class CourseDao {
 	
 	public void addCourse(CourseBean course) {
 		
-		stmt.update("insert into course(coursename,isactive,description) values (?,?,?)",course.getCourseName(),course.getIsActive(),course.getDescription());
+		stmt.update("insert into course(coursename,isactive,description) values (?,?,?)",course.getCourseName(),1,course.getDescription());
 	}
 
 	public List<CourseBean> getAllCourses() {
