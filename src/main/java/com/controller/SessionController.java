@@ -5,7 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bean.UserBean;
+import com.bean.SessionBean;
+
 
 
 
@@ -31,8 +32,8 @@ public class SessionController {
 		return "ForgetPassword";
 	}
 	
-	@RequestMapping(value = "saveuser" , method = RequestMethod.POST)
-	public String saveuser(UserBean user) {
+	@RequestMapping(value = "signupsaveuser" , method = RequestMethod.POST)
+	public String saveuser(SessionBean user) {
 		
 		System.out.println(user.getFirstName());
 		System.out.println(user.getEmail());
@@ -42,14 +43,14 @@ public class SessionController {
 	}
 	
 	@RequestMapping(value = "emailforpass" , method = RequestMethod.POST)
-	public String emailforpass(UserBean user) {
+	public String emailforpass(SessionBean user) {
 		System.out.println(user.getNewEmail());
 		
 		return "Login";
 	}
 	
 	@RequestMapping(value = "loginuser", method = RequestMethod.POST)
-	public String loginuser(UserBean user) {
+	public String loginuser(SessionBean user) {
 		System.out.println(user.getLoginEmail());
 		System.out.println(user.getLoginPassword());
 		

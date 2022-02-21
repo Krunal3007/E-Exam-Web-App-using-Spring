@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>SignUp</h2>
-<form action="saveuser" method="post">
+<form action="signupsaveuser" method="post">
 	First Name:<input type="text" name="firstName"> <br><br>
 	Email :<input type="email" name="email"> <br><br>
 	Password :<input type="password" name="password"> <br><br>
