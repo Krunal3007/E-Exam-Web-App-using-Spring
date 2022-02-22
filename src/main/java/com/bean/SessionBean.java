@@ -2,29 +2,30 @@ package com.bean;
 
 public class SessionBean {
 	
-	private String firstName;
-	private String email;
-	private String password;
+	private String signupFirstName;
+	private String signupEmail;
+	private String signupPassword;
 	private String newEmail;
 	private String loginEmail;
 	private String loginPassword;
-	public String getFirstName() {
-		return firstName;
+	
+	public String getSignupFirstName() {
+		return signupFirstName;
 	}
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
+	public void setSignupFirstName(String signupFirstName) {
+		this.signupFirstName = signupFirstName;
 	}
-	public String getEmail() {
-		return email;
+	public String getSignupEmail() {
+		return signupEmail;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setSignupEmail(String signupEmail) {
+		this.signupEmail = signupEmail;
 	}
-	public String getPassword() {
-		return password;
+	public String getSignupPassword() {
+		return signupPassword;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setSignupPassword(String signupPassword) {
+		this.signupPassword = signupPassword;
 	}
 	public String getNewEmail() {
 		return newEmail;

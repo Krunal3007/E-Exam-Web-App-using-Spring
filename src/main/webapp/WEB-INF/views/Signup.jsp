@@ -9,9 +9,9 @@
 <body>
 <h2>SignUp</h2>
 <form action="signupsaveuser" method="post">
-	First Name:<input type="text" name="firstName"> <br><br>
-	Email :<input type="email" name="email"> <br><br>
-	Password :<input type="password" name="password"> <br><br>
+	First Name:<input type="text" name="signupFirstName"> <br><br>
+	Email :<input type="email" name="signupEmail"> <br><br>
+	Password :<input type="password" name="sighupPassword"> <br><br>
 	
 	<input type="submit" value="Submit">
 

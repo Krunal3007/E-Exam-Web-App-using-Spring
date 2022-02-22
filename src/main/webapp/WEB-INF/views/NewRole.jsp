@@ -9,7 +9,7 @@
 <body>
 
 <h2>New Role</h2>
-<form action="saverole" , method="post">
+<form action="saverole"  method="post">
 	RoleName : <input type="text" name="roleName"> <br> <br>
 	<input type="submit" value="Add Role">
 </form>

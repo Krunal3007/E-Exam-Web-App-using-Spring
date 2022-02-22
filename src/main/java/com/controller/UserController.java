@@ -3,6 +3,7 @@ package com.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +24,10 @@ public class UserController {
 	
 	@Autowired
 	UserDao userDao;
+	
+	
+	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@GetMapping("/newuser")
 	public String newUser(Model model) {
@@ -35,6 +40,12 @@ public class UserController {
 	
 	@PostMapping("/saveuser")
 	public String saveUser(UserBean user) {
+		
+		String plainPassword = user.getPassword();
+		String encryptedPassword = bCryptPasswordEncoder.encode(plainPassword);
+		System.out.println(encryptedPassword);
+		user.setPassword(encryptedPassword);
+		
 		
 		userDao.addUser(user);
 		
