@@ -98,16 +98,8 @@ public class ExamController {
 	}
 	
 	
-	@GetMapping("/examquestions")
-	public String examQuestions(ExamBean exam,Model model) {
-		
-		List<QuestionBean> questions = examDao.getExamQuestions(exam.getCourseId());
-		model.addAttribute("questions",questions);
-		
-		
-		
-		return "";
-	}
+	
+	
 	
 	
 }
