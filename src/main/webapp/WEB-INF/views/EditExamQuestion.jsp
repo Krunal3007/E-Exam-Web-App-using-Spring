@@ -21,6 +21,7 @@ Question Marks : <input type="number" name="questionMarks" value="${question.que
 Question Answer : <input type="text" name="questionAnswer" value="${question.questionAnswer }"> <br><br>
 
 Course Name : <input type="text" name="courseName" value="${question.courseName }" readonly> <br><br>
+<input type="hidden" name="courseId" value="${question.courseId }" readonly> <br><br>
 			
 Option 1 : <input type="text" name="option1" value="${question.option1 }"><br><br>
 Option 2 : <input type="text" name="option2" value="${question.option2 }"> <br><br>

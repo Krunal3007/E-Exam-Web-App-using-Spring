@@ -32,4 +32,12 @@ public class ExamQuestionDao {
 		return questions;
 	}
 	
+	public QuestionBean getCourseIdByQuestionId(int questionId) {
+		
+		QuestionBean question = stmt.queryForObject("select * from question where questionid=?", 
+				new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),new Object[] {questionId});
+	
+		return question;
+	}
+	
 }

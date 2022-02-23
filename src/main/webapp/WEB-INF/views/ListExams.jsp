@@ -35,7 +35,8 @@
 <td>${e.instructions }</td>
 <td>${e.totalMarks }</td>
 <td><a href="deleteexam/${e.examId }">Delete</a> |
-	<a href="editexam?examId=${e.examId }">Edit</a>
+	<a href="editexam?examId=${e.examId }">Edit</a> |
+	<a href="showexamquestions?courseId=${e.courseId}">Show Questions</a>
 </td>
 
 </tr>

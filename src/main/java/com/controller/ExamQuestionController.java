@@ -2,6 +2,8 @@ package com.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +30,8 @@ public class ExamQuestionController {
 	
 	@Autowired
 	CourseDao courseDao;
+	
+	
 
 	@GetMapping("/selectexam")
 	public String listExamQuestion(Model model) {
@@ -41,12 +45,39 @@ public class ExamQuestionController {
 	@GetMapping("/startexam")
 	public String startExam(ExamQuestionBean eqb,Model model) {
 		
+		
 		List<QuestionBean> questions = examQuestionDao.getExamQuestions(eqb.getCourseId());
 		
 		model.addAttribute("questions",questions);
 		
 		return "ListExamQuestions";
 		
+	}
+	
+	
+	@GetMapping("/listexamquestions")
+	public String listExamQuestionsForAll(HttpSession hts,Model model) {
+		
+		int courseId =(int)hts.getAttribute("courseId");
+		
+		List<QuestionBean> questions = examQuestionDao.getExamQuestions(courseId);
+		model.addAttribute("questions",questions);
+		
+		return "ListExamQuestions";
+	}
+	
+	
+	
+	
+	@GetMapping("/showexamquestions")
+	public String showExamQuestions(@RequestParam("courseId")int courseId,HttpSession hts) {
+		
+		
+		
+		hts.setAttribute("courseId", courseId);
+		
+		
+		return "redirect:/listexamquestions";
 	}
 	
 	@GetMapping("/newexamquestion")
@@ -59,25 +90,39 @@ public class ExamQuestionController {
 	}
 	
 	@PostMapping("/saveexamquestion")
-	public String saveExamQuestion(QuestionBean question) {
+	public String saveExamQuestion(QuestionBean question,HttpSession hts) {
 		
 		questionDao.addQuestion(question);
 		
-		return "redirect:/startexam";
+		int courseId = question.getCourseId();
+		hts.setAttribute("courseId", courseId);
+		
+		
+		return "redirect:/listexamquestions";
 	}
 	
 	
 	@GetMapping("/deleteexamquestion/{questionId}")
-	public String deleteQuestion(@PathVariable("questionId") int questionId) {
+	public String deleteExamQuestion(@PathVariable("questionId") int questionId,HttpSession hts) {
+		
+		
+		QuestionBean question = examQuestionDao.getCourseIdByQuestionId(questionId);
+		
+		int courseId = question.getCourseId();
+		hts.setAttribute("courseId", courseId);
 		
 		questionDao.deleteQuestion(questionId);
 		
-		return "redirect:/startexam";
+
+		return "redirect:/listexamquestions";
 		
 	}
 	
+	
+	
+	
 	@GetMapping("/editexamquestion")
-	public String editQuestion(@RequestParam("questionId") int questionId,Model model) {
+	public String editExamQuestion(@RequestParam("questionId") int questionId,Model model) {
 		
 		QuestionBean question = questionDao.getQuestionById(questionId);
 		model.addAttribute("question",question);
@@ -87,11 +132,16 @@ public class ExamQuestionController {
 	}
 	
 	@PostMapping("/updateexamquestion")
-	public String updateQuestion(QuestionBean question) {
+	public String updateExamQuestion(QuestionBean question,HttpSession hts) {
 		
 		questionDao.updateQuestion(question);
 		
-		return "redirect:/startexam";
+		int courseId = question.getCourseId();
+		hts.setAttribute("courseId", courseId);
+		
+		
+		return "redirect:/listexamquestions";
+		
 		
 	}
 	
