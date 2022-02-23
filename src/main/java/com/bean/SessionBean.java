@@ -5,10 +5,17 @@ public class SessionBean {
 	private String signupFirstName;
 	private String signupEmail;
 	private String signupPassword;
-	private String newEmail;
+	private String emailForPass;
 	private String loginEmail;
 	private String loginPassword;
+	private int otp;
 	
+	public int getOtp() {
+		return otp;
+	}
+	public void setOtp(int otp) {
+		this.otp = otp;
+	}
 	public String getSignupFirstName() {
 		return signupFirstName;
 	}
@@ -27,11 +34,12 @@ public class SessionBean {
 	public void setSignupPassword(String signupPassword) {
 		this.signupPassword = signupPassword;
 	}
-	public String getNewEmail() {
-		return newEmail;
+	
+	public String getEmailForPass() {
+		return emailForPass;
 	}
-	public void setNewEmail(String newEmail) {
-		this.newEmail = newEmail;
+	public void setEmailForPass(String emailForPass) {
+		this.emailForPass = emailForPass;
 	}
 	public String getLoginEmail() {
 		return loginEmail;

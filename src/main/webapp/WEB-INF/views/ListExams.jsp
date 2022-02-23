@@ -29,7 +29,7 @@
 <tr>
 
 <td>${e.examId }</td>
-<td>${e.courseName }</td>
+<td><a>${e.courseName }</a></td>
 <td>${e.duration }</td>
 <td>${e.noOfQuestion }</td>
 <td>${e.instructions }</td>

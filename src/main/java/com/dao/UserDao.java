@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.bean.SessionBean;
 import com.bean.UserBean;
 
 @Repository
@@ -63,5 +64,10 @@ public class UserDao {
 
 		}
 		return dbUser;
+	}
+	
+	public void updatePassword(SessionBean session) {
+		
+		stmt.update("update users set password =? where email=?",session.getLoginPassword(),session.getLoginEmail());
 	}
 }

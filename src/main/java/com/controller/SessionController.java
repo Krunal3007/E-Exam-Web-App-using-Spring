@@ -1,10 +1,13 @@
 package com.controller;
 
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -35,6 +38,12 @@ public class SessionController {
 		//we cant write java in html so we use jsp file
 	}
 	
+	
+	@GetMapping("/")
+	public String login2() {
+		return "redirect:/login";
+	}
+	
 	@RequestMapping(value = "login", method = RequestMethod.GET)
 	public String login() {
 		return "Login";
@@ -46,6 +55,7 @@ public class SessionController {
 		boolean isCorrect=false;
 		
 		UserBean dbuser = userDao.getUserByEmail(session.getLoginEmail());
+		
 		if(dbuser != null) {
 			
 			if(bCryptPasswordEncoder.matches(session.getLoginPassword(), dbuser.getPassword()) == true) {
@@ -76,27 +86,54 @@ public class SessionController {
 		return "ForgetPassword";
 	}
 	
-	@RequestMapping(value = "signupsaveuser" , method = RequestMethod.POST)
-	public String saveuser(SessionBean user) {
+	
+	
+	@RequestMapping(value = "forgetpassword" , method = RequestMethod.POST)
+	public String emailforpass(SessionBean sessionb,Model model,HttpSession session) {
+		
+		UserBean dbuser = userDao.getUserByEmail(sessionb.getEmailForPass());
+		
+		if(dbuser == null) {
+			
+			model.addAttribute("error","Please enter valid email");
+			return "ForgetPassword";
+		}
+		else {
+			
+			int otp = (int)(Math.random() * 1000000);
+			session.setAttribute("otp", otp);
+			session.setAttribute("email", sessionb.getEmailForPass());
+			
+			model.addAttribute("msg","Otp is generated and sent to your email");
+			System.out.println(otp);
+			
+			return "NewPassword";
+		}
 		
 		
-		
-		return "Login";
 	}
 	
-	@RequestMapping(value = "emailforpass" , method = RequestMethod.POST)
-	public String emailforpass(SessionBean user) {
-		System.out.println(user.getNewEmail());
+	@PostMapping("/updatepassword")
+	public String updatePassword(SessionBean sessionb,HttpSession session,Model model) {
 		
-		return "Login";
-	}
-	
-	@RequestMapping(value = "loginuser", method = RequestMethod.POST)
-	public String loginuser(SessionBean user) {
-		System.out.println(user.getLoginEmail());
-		System.out.println(user.getLoginPassword());
+		int otp = (int)session.getAttribute("otp");
+		String email = (String)session.getAttribute("email");
 		
-		return "Login";
+		if(otp == sessionb.getOtp() && email.equals(sessionb.getLoginEmail())) {
+			
+			String encryptedPassword = bCryptPasswordEncoder.encode(sessionb.getLoginPassword());
+			sessionb.setLoginPassword(encryptedPassword);
+			
+			userDao.updatePassword(sessionb);
+			
+			model.addAttribute("msg","Password updated successfully please login");
+			return "Login";
+		}
+		else {
+			model.addAttribute("error","Your data mismatch with our records");
+			return "NewPassword";
+		}
+		
 	}
 
 }
