@@ -2,6 +2,8 @@ package com.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +44,7 @@ public class ExamController {
 	}
 	
 	@PostMapping("/saveexam")
-	public String saveExam(ExamBean exam) {
+	public String saveExam(ExamBean exam,HttpSession hts) {
 		
 		
 		List<QuestionBean> questions = examDao.getExamQuestions(exam.getCourseId());
@@ -57,6 +59,7 @@ public class ExamController {
 		exam.setTotalMarks(totalMarks);
 		exam.setNoOfQuestion(count);
 		
+				
 		examDao.addExam(exam);
 		
 		return "redirect:/listexams";
@@ -65,7 +68,27 @@ public class ExamController {
 	@GetMapping("/listexams")
 	public String listExams(Model model) {
 		
+		
 		List<ExamBean> exams = examDao.getAllExams();
+
+//this solution is also working correctly but now not needed
+//		int courseId=0;
+//		int totalMarks=0;
+//		int count=0;
+//		for(int i=0;i<exams.size();i++) {
+//			courseId = exams.get(i).getCourseId();
+//			List<QuestionBean> questions = examDao.getExamQuestions(courseId);
+//			for(int j=0;j<questions.size();j++) {
+//				totalMarks = questions.get(j).getQuestionMarks() + totalMarks;
+//				count++;
+//			}
+//			exams.get(i).setTotalMarks(totalMarks);
+//			exams.get(i).setNoOfQuestion(count);
+//		
+//			totalMarks=0;
+//			count=0;
+//		}
+		
 		model.addAttribute("exams",exams);
 		
 		return "ListExams";

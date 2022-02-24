@@ -62,5 +62,10 @@ public void updateExam(ExamBean exam) {
 	stmt.update("update exam set duration=?,instructions=?",exam.getDuration(),exam.getInstructions());
 }
 
+public void updateMarksCount(ExamBean exam) {
+	
+	stmt.update("update exam set noofquestion=?,totalmarks=? where examid=?",exam.getNoOfQuestion(),exam.getTotalMarks(),exam.getExamId());
+}
+
 
 }

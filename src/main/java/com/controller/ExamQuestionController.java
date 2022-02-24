@@ -13,9 +13,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.CourseBean;
+import com.bean.ExamBean;
 import com.bean.ExamQuestionBean;
 import com.bean.QuestionBean;
 import com.dao.CourseDao;
+import com.dao.ExamDao;
 import com.dao.ExamQuestionDao;
 import com.dao.QuestionDao;
 
@@ -30,6 +32,9 @@ public class ExamQuestionController {
 	
 	@Autowired
 	CourseDao courseDao;
+	
+	@Autowired
+	ExamDao examDao;
 	
 	
 
@@ -94,6 +99,21 @@ public class ExamQuestionController {
 		
 		questionDao.addQuestion(question);
 		
+		List<QuestionBean> questions = examDao.getExamQuestions(question.getCourseId());
+		
+		int totalMarks=0;
+		int count=0;
+		for(int i=0;i<questions.size();i++) {
+			totalMarks = questions.get(i).getQuestionMarks() + totalMarks;
+			count++;
+		}
+		ExamBean exam = examQuestionDao.getExamByCourseId(question.getCourseId());
+		
+		exam.setTotalMarks(totalMarks);
+		exam.setNoOfQuestion(count);
+		
+		examDao.updateMarksCount(exam);
+		
 		int courseId = question.getCourseId();
 		hts.setAttribute("courseId", courseId);
 		
@@ -112,6 +132,22 @@ public class ExamQuestionController {
 		hts.setAttribute("courseId", courseId);
 		
 		questionDao.deleteQuestion(questionId);
+		
+		List<QuestionBean> questions = examDao.getExamQuestions(question.getCourseId());
+		
+		int totalMarks=0;
+		int count=0;
+		for(int i=0;i<questions.size();i++) {
+			totalMarks = questions.get(i).getQuestionMarks() + totalMarks;
+			count++;
+		}
+		ExamBean exam = examQuestionDao.getExamByCourseId(question.getCourseId());
+		
+		exam.setTotalMarks(totalMarks);
+		exam.setNoOfQuestion(count);
+		
+		examDao.updateMarksCount(exam);
+		
 		
 
 		return "redirect:/listexamquestions";

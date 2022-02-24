@@ -11,8 +11,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.CourseBean;
+import com.bean.ExamBean;
 import com.bean.QuestionBean;
 import com.dao.CourseDao;
+import com.dao.ExamDao;
+import com.dao.ExamQuestionDao;
 import com.dao.QuestionDao;
 
 @Controller
@@ -23,6 +26,12 @@ public class QuestionController {
 	
 	@Autowired
 	QuestionDao questionDao;
+	
+	@Autowired
+	ExamDao examDao;
+	
+	@Autowired
+	ExamQuestionDao examQuestionDao;
 	
 	@GetMapping("/newquestion")
 	public String newQuestion(Model model) {
@@ -37,6 +46,26 @@ public class QuestionController {
 	public String saveQuestion(QuestionBean question) {
 		
 		questionDao.addQuestion(question);
+		
+		List<QuestionBean> questions = examDao.getExamQuestions(question.getCourseId());
+		
+		int totalMarks=0;
+		int count=0;
+		for(int i=0;i<questions.size();i++) {
+			totalMarks = questions.get(i).getQuestionMarks() + totalMarks;
+			count++;
+		}
+		
+		ExamBean exam = examQuestionDao.getExamByCourseId(question.getCourseId());
+		
+		if(exam != null) {
+		exam.setTotalMarks(totalMarks);
+		exam.setNoOfQuestion(count);
+		
+		examDao.updateMarksCount(exam);
+		}
+		
+
 		
 		return "redirect:/listquestions";
 	}
@@ -53,7 +82,32 @@ public class QuestionController {
 	@GetMapping("/deletequestion/{questionId}")
 	public String deleteQuestion(@PathVariable("questionId") int questionId) {
 		
+		
+		
+		QuestionBean question = examQuestionDao.getCourseIdByQuestionId(questionId);
+		
+		
 		questionDao.deleteQuestion(questionId);
+		
+		List<QuestionBean> questions = examDao.getExamQuestions(question.getCourseId());
+		
+		int totalMarks=0;
+		int count=0;
+		for(int i=0;i<questions.size();i++) {
+			totalMarks = questions.get(i).getQuestionMarks() + totalMarks;
+			count++;
+		}
+		
+		ExamBean exam = examQuestionDao.getExamByCourseId(question.getCourseId());
+		
+		if(exam != null) {
+		exam.setTotalMarks(totalMarks);
+		exam.setNoOfQuestion(count);
+		
+		examDao.updateMarksCount(exam);
+		}
+		
+		
 		
 		return "redirect:/listquestions";
 		

@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.bean.CourseBean;
+import com.bean.ExamBean;
 import com.bean.QuestionBean;
 
 
@@ -38,6 +39,18 @@ public class ExamQuestionDao {
 				new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),new Object[] {questionId});
 	
 		return question;
+	}
+	
+	public ExamBean getExamByCourseId(int courseId) {
+		ExamBean exam=null;
+		try {
+		 exam = stmt.queryForObject("select * from exam where courseid=?", 
+				new BeanPropertyRowMapper<ExamBean>(ExamBean.class),new Object[] {courseId});
+		}
+		catch(Exception e) {
+			
+		}
+		return exam;
 	}
 	
 }
