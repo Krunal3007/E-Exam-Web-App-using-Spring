@@ -15,6 +15,16 @@
 FirstName :<input type="text" name="firstName"> <br><br>
 Email : <input type="email" name="email"> <br><br>
 Password : <input type="password" name="password"> <br><br>
+
+Xender : <select name="xender">
+
+		<option>--Select--</option>
+		<option value="Male">Male</option>
+		<option value="Female">Female</option>
+
+		</select> <br><br>
+
+
 Phone No : <input type="text" name="phoneNo"> <br><br>
 Address : <input type="text" name="address"> <br><br>
 City : <input type="text" name="city"> <br><br>

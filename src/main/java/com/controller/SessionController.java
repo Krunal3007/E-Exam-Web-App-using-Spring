@@ -50,7 +50,7 @@ public class SessionController {
 	}
 	
 	@PostMapping("/login") //same url rakhi sakay jo mapping different hoy (this is mapping is for authenication 
-	public String authenticate(SessionBean session,Model model) {
+	public String authenticate(SessionBean session,Model model,HttpSession hts) {
 		
 		boolean isCorrect=false;
 		
@@ -60,6 +60,7 @@ public class SessionController {
 			
 			if(bCryptPasswordEncoder.matches(session.getLoginPassword(), dbuser.getPassword()) == true) {
 				isCorrect=true;
+				hts.setAttribute("user", dbuser);
 			}
 		}
 		
@@ -69,7 +70,20 @@ public class SessionController {
 			//faculty
 			//student
 			
-			return "Home";
+			if(dbuser.getRoleId() == 1) {
+				return "redirect:/admindashboard";
+			
+			}else if(dbuser.getRoleId() == 6) {
+				return "redirect:/facultydashboard";
+			
+			}else if(dbuser.getRoleId() == 5) {
+				return "redirect:/studentdashboard";
+				
+			}else {
+				return "NoRole";
+			}
+			
+			
 		}
 		else {
 			

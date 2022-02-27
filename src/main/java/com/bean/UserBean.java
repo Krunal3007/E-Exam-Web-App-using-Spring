@@ -13,7 +13,14 @@ public class UserBean {
 	private int pincode;
 	private int roleId;
 	private int isActive;
+	private String xender;
 	
+	public String getXender() {
+		return xender;
+	}
+	public void setXender(String xender) {
+		this.xender = xender;
+	}
 	private String roleName;
 	
 	public String getRoleName() {

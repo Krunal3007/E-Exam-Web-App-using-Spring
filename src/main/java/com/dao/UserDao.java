@@ -19,9 +19,9 @@ public class UserDao {
 	public void addUser(UserBean user) {
 		
 		
-		stmt.update("insert into users(firstname,email,password,phoneno,address,city,state,pincode,roleid,isactive) "
-				+ "values(?,?,?,?,?,?,?,?,?,?)",user.getFirstName(),user.getEmail(),user.getPassword(),user.getPhoneNo(),
-				user.getAddress(),user.getCity(),user.getState(),user.getPincode(),user.getRoleId(),1);
+		stmt.update("insert into users(firstname,email,password,phoneno,address,city,state,pincode,roleid,isactive,xender) "
+				+ "values(?,?,?,?,?,?,?,?,?,?,?)",user.getFirstName(),user.getEmail(),user.getPassword(),user.getPhoneNo(),
+				user.getAddress(),user.getCity(),user.getState(),user.getPincode(),user.getRoleId(),1,user.getXender());
 		
 	}
 	

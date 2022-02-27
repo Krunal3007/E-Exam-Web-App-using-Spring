@@ -20,6 +20,7 @@
 <th>First Name</th>
 <th>Email</th>
 <th>Password</th>
+<th>Xender</th>
 <th>Phone No</th>
 <th>Address</th>
 <th>City</th>
@@ -39,6 +40,7 @@
  <td>${u.firstName }</td>
  <td>${u.email }</td>
  <td>${u.password }</td>
+ <td>${u.xender }</td>
  <td>${u.phoneNo }</td>
  <td>${u.address }</td>
  <td>${u.city }</td>
