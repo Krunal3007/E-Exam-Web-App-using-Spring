@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bean.CourseBean;
 import com.bean.ExamBean;
+import com.bean.ExamQuestionBean;
 import com.bean.QuestionBean;
 
 
@@ -25,13 +26,29 @@ public class ExamQuestionDao {
 		return courses;
 	}
 	
-	public List<QuestionBean> getExamQuestions(int courseId) {
+	public List<QuestionBean> getAllExamQuestions(int courseId) {
 		
 		List<QuestionBean> questions = stmt.query("select q.*,c.coursename from question q,course c where q.courseid=c.courseid and q.courseid=?", 
 				new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),new Object[] {courseId});
 		
 		return questions;
 	}
+	
+	public List<QuestionBean> getExamQuestions(int courseId) {
+		
+		List<QuestionBean> questions = stmt.query("select q.*,e.* from question q,examquestion e where q.questionid = e.questionid and courseid=?", 
+				new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),new Object[] {courseId});
+		
+		return questions;
+	}
+	
+	public void deleteFromExamQuestion(int questionId) {
+		
+		stmt.update("delete from examquestion where questionid = ?",questionId);
+		
+	}
+	
+	
 	
 	public QuestionBean getCourseIdByQuestionId(int questionId) {
 		
@@ -52,5 +69,23 @@ public class ExamQuestionDao {
 		}
 		return exam;
 	}
+	
+	public void addExamQuestion(ExamQuestionBean eqb) {
+		
+		stmt.update("insert into examquestion(examid,questionid) values(?,?)",eqb.getExamId(),eqb.getQuestionId());
+	}
+	
+	public ExamBean isQuestionIdAvailable(int questionId) {
+		ExamBean exambn=null;
+		try {
+			exambn = stmt.queryForObject("select * from examquestion where questionid=?", 
+					new BeanPropertyRowMapper<ExamBean>(ExamBean.class),new Object[] {questionId});
+		}
+		catch(Exception e) {
+			
+		}
+		return exambn;
+	}
+	
 	
 }

@@ -12,7 +12,29 @@ public class QuestionBean {
 	private String option3;
 	private String option4;
 	private int isActive;
+	private int qId;
 	
+	private int totalMarks;
+	private int totalQuestions;
+	
+	public int getTotalMarks() {
+		return totalMarks;
+	}
+	public void setTotalMarks(int totalMarks) {
+		this.totalMarks = totalMarks;
+	}
+	public int getTotalQuestions() {
+		return totalQuestions;
+	}
+	public void setTotalQuestions(int totalQuestions) {
+		this.totalQuestions = totalQuestions;
+	}
+	public int getqId() {
+		return qId;
+	}
+	public void setqId(int qId) {
+		this.qId = qId;
+	}
 	private String courseName;
 	
 	public String getCourseName() {

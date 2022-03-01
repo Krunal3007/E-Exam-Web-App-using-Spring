@@ -17,6 +17,7 @@ import com.bean.ExamBean;
 import com.bean.QuestionBean;
 import com.dao.CourseDao;
 import com.dao.ExamDao;
+import com.dao.ExamQuestionDao;
 import com.dao.QuestionDao;
 
 
@@ -32,6 +33,10 @@ public class ExamController {
 	
 	@Autowired
 	QuestionDao questionDao;
+	
+	@Autowired
+	ExamQuestionDao examQuestionDao;
+	
 	
 	@GetMapping("/newexam")
 	public String newExam(Model model) {
@@ -71,25 +76,42 @@ public class ExamController {
 		
 		List<ExamBean> exams = examDao.getAllExams();
 
-//this solution is also working correctly but now not needed
+		model.addAttribute("exams",exams);
+		
+		
+//this is for questions which are in userexam
 //		int courseId=0;
 //		int totalMarks=0;
 //		int count=0;
+//		 
+//		
 //		for(int i=0;i<exams.size();i++) {
 //			courseId = exams.get(i).getCourseId();
-//			List<QuestionBean> questions = examDao.getExamQuestions(courseId);
+//			
+//			List<QuestionBean> questions = examQuestionDao.getExamQuestions(courseId);
+//			
+//			
+//			if(questions.size() != 0) {
 //			for(int j=0;j<questions.size();j++) {
 //				totalMarks = questions.get(j).getQuestionMarks() + totalMarks;
 //				count++;
 //			}
-//			exams.get(i).setTotalMarks(totalMarks);
-//			exams.get(i).setNoOfQuestion(count);
+//			
+//			
+//			questions.get(i).setTotalMarks(totalMarks);
+//			questions.get(i).setTotalQuestions(count);
 //		
 //			totalMarks=0;
 //			count=0;
+//			
+//			
+//			model.addAttribute("questions",questions);
+//			}
 //		}
 		
-		model.addAttribute("exams",exams);
+		
+		
+		
 		
 		return "ListExams";
 	}

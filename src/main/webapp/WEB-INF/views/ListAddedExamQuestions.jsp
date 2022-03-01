@@ -7,12 +7,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>List Exam Questions</title>
+<title>List Added Exam Questions</title>
 </head>
 <body>
-<h2>List Exam Questions</h2>
+<h2>List Added Exam Questions</h2>
 
-<a href="newexamquestion">Add Question</a>
+
 <table border="1">
 <tr>
 <th>Question Id</th>
@@ -35,15 +35,14 @@
 <td>${q.questionName}</td>
 <td>${q.questionMarks}</td>
 <td>${q.questionAnswer}</td>
-<td>${q.courseName}</td>
+<td>${courseName}</td>
 <td>${q.option1}</td>
 <td>${q.option2}</td>
 <td>${q.option3}</td>
 <td>${q.option4}</td>
-<td><a href="deleteexamquestion/${q.questionId}">Delete</a> |
-	<a href="editexamquestion?questionId=${q.questionId}">Edit</a> |
-	<a href="addquestiontoexam?questionId=${q.questionId }">Add To Exam</a>
+<td><a href="deletequestionfromexamquestion/${q.questionId}">Delete</a> 
 	
+
 	
 </td> 
 

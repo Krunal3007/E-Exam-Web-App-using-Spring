@@ -59,7 +59,7 @@ public ExamBean getExamById(int examId) {
 
 public void updateExam(ExamBean exam) {
 	
-	stmt.update("update exam set duration=?,instructions=?",exam.getDuration(),exam.getInstructions());
+	stmt.update("update exam set duration=?,instructions=? where examid=?",exam.getDuration(),exam.getInstructions(),exam.getExamId());
 }
 
 public void updateMarksCount(ExamBean exam) {
