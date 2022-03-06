@@ -64,12 +64,10 @@
 								<div class="col-lg-4">
 									<div class="page-header-breadcrumb">
 										<ul class=" breadcrumb breadcrumb-title">
-											<li class="breadcrumb-item"><a href="index.html"><i
+											<li class="breadcrumb-item"><a href="admindashboard"><i
 													class="feather icon-home"></i></a></li>
-											<li class="breadcrumb-item"><a href="#!">Bootstrap
-													Table</a></li>
-											<li class="breadcrumb-item"><a href="#!">Basic
-													Initialization</a></li>
+											<li class="breadcrumb-item"><a href="#!">Exams</a></li>
+											<li class="breadcrumb-item"><a href="#!">List</a></li>
 										</ul>
 									</div>
 								</div>
@@ -87,7 +85,7 @@
 												<div class="card">
 													<div class="card-header">
 														
-														<a href="newexam"><button class="btn btn-primary">Add Exam</button></a>
+														<a href="newexam"><button class="btn btn-primary">Add Exam</button></a>	
 
 													</div>
 													<div class="card-block">
@@ -124,16 +122,16 @@
 <td>${e.instructions }</td>
 
 
-<td><a href="showexamquestions?courseId=${e.courseId }">Exam Questions</a></td>
-<td><a href="deleteexam/${e.examId }">Delete</a> |
-	<a href="editexam?examId=${e.examId }">Edit</a> |
+<td><a href="showexamquestions?courseId=${e.courseId }"><button class="btn btn-primary btn-sm">Exam Questions</button></a></td>
+<td><a href="deleteexam/${e.examId }"><button class="btn btn-primary btn-sm">Delete</button></a> 
+	<a href="editexam?examId=${e.examId }"><button class="btn btn-primary btn-sm">Edit</button></a> 
 	
 	
 </td>
 
-<td><a href="showallexamquestions?courseId=${e.courseId}">All Questions</a>  |
-	Total Questions : ${e.noOfQuestion } |
-	Total Marks : ${e.totalMarks }
+<td><a href="showallexamquestions?courseId=${e.courseId}"><button class="btn btn-primary btn-sm">All Questions</button></a>  
+	Total Questions : <button class="btn btn-primary btn-sm">${e.noOfQuestion }</button> 
+	Total Marks : <button class="btn btn-primary btn-sm">${e.totalMarks }</button>
 </td>
 </tr>
 
@@ -202,3 +200,14 @@
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+

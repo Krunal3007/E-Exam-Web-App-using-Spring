@@ -65,6 +65,8 @@ public class ExamQuestionController {
 	@GetMapping("/listexamquestions")
 	public String listExamQuestionsForAll(HttpSession hts,Model model) {
 		
+		
+		
 		int courseId =(int)hts.getAttribute("courseId");
 		
 		List<QuestionBean> questions = examQuestionDao.getAllExamQuestions(courseId);

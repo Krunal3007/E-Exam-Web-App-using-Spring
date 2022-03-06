@@ -24,24 +24,27 @@ public class UserExamDao {
 		return exam;
 	}
 	
-	public void addIntoUserExam(UserExamBean ueb) {
+	
+	
+	
+	public void addIntoUserExam(UserExamBean ueb,int qId,String ans) {
 
 		
 		
-		int ar[] = new int[ueb.getUserExamQuestionId().size()];
-		for(int i=0;i<ueb.getUserExamQuestionId().size();i++) {
-			ar[i]=ueb.getUserExamQuestionId().get(i);
-		}
-
-		String sr[] = new String[ueb.getUserExamAnswer().size()];
-		for(int i=0;i<ueb.getUserExamAnswer().size();i++) {
-			sr[i] = ueb.getUserExamAnswer().get(i);
-		}
+//		int ar[] = new int[ueb.getUserExamQuestionId().size()];
+//		for(int i=0;i<ueb.getUserExamQuestionId().size();i++) {
+//			ar[i]=ueb.getUserExamQuestionId().get(i);
+//		}
+//
+//		String sr[] = new String[ueb.getUserExamAnswer().size()];
+//		for(int i=0;i<ueb.getUserExamAnswer().size();i++) {
+//			sr[i] = ueb.getUserExamAnswer().get(i);
+//		}
 				
 
 
 		
-		stmt.update("insert into userexam (userid,examid,questionid,useranswer) values(?,?,?,?)",ueb.getUserId(),ueb.getExamId(),ar,sr);
+		stmt.update("insert into userexam (userid,examid,questionid,useranswer) values(?,?,?,?)",ueb.getUserId(),ueb.getExamId(),qId,ans);
 		
 		
 		

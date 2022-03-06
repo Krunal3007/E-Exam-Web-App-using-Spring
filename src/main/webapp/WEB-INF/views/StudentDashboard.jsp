@@ -9,6 +9,7 @@
 <body>
 
 <h2>Student Dashboard</h2>
-<a href="listuserexams">Show Exams</a>
+<a href="listuserexams">Show Exams</a> <br><br>
+<a href="usergivenexams">Show Records</a>
 </body>
 </html>

@@ -1,0 +1,49 @@
+package com.bean;
+
+public class UserExamAnswerBean {
+
+	private int userExamAnswerId;
+	private int userId;
+	private int examId;
+	private int totalMarks;
+	private int obtainMarks;
+	private int isPass;
+	public int getUserExamAnswerId() {
+		return userExamAnswerId;
+	}
+	public void setUserExamAnswerId(int userExamAnswerId) {
+		this.userExamAnswerId = userExamAnswerId;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public int getExamId() {
+		return examId;
+	}
+	public void setExamId(int examId) {
+		this.examId = examId;
+	}
+	public int getTotalMarks() {
+		return totalMarks;
+	}
+	public void setTotalMarks(int totalMarks) {
+		this.totalMarks = totalMarks;
+	}
+	public int getObtainMarks() {
+		return obtainMarks;
+	}
+	public void setObtainMarks(int obtainMarks) {
+		this.obtainMarks = obtainMarks;
+	}
+	public int getIsPass() {
+		return isPass;
+	}
+	public void setIsPass(int isPass) {
+		this.isPass = isPass;
+	}
+	
+	
+}

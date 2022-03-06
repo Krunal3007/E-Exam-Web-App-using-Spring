@@ -42,19 +42,17 @@
 									<div class="page-header-title">
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>List Added Exam Questions</h5>
+											<h5>List Exam Questions</h5>
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-4">
 									<div class="page-header-breadcrumb">
 										<ul class=" breadcrumb breadcrumb-title">
-											<li class="breadcrumb-item"><a href="index.html"><i
+											<li class="breadcrumb-item"><a href="admindashboard"><i
 													class="feather icon-home"></i></a></li>
-											<li class="breadcrumb-item"><a href="#!">Bootstrap
-													Table</a></li>
-											<li class="breadcrumb-item"><a href="#!">Basic
-													Initialization</a></li>
+											<li class="breadcrumb-item"><a href="#!">Exams</a></li>
+											<li class="breadcrumb-item"><a href="#!">List Exam Questions</a></li>
 										</ul>
 									</div>
 								</div>
@@ -113,7 +111,7 @@
 <td>${q.option2}</td>
 <td>${q.option3}</td>
 <td>${q.option4}</td>
-<td><a href="deletequestionfromexamquestion/${q.questionId}">Delete</a> 
+<td><a href="deletequestionfromexamquestion/${q.questionId}"><button class="btn btn-primary btn-sm">Delete</button></a> 
 	
 
 	
@@ -122,6 +120,7 @@
 </tr>
 
 </c:forEach>
+
 
 
 																			</tbody>

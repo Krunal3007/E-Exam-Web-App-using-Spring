@@ -54,19 +54,17 @@
 									<div class="page-header-title">
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>New Question</h5>
+											<h5>New Exam Question</h5>
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-4">
 									<div class="page-header-breadcrumb">
 										<ul class=" breadcrumb breadcrumb-title">
-											<li class="breadcrumb-item"><a href="index.html"><i
+											<li class="breadcrumb-item"><a href="admindashboard"><i
 													class="feather icon-home"></i></a></li>
-											<li class="breadcrumb-item"><a href="#!">Bootstrap
-													Table</a></li>
-											<li class="breadcrumb-item"><a href="#!">Basic
-													Initialization</a></li>
+											<li class="breadcrumb-item"><a href="#!">Exams</a></li>
+											<li class="breadcrumb-item"><a href="#!">New Exam Question</a></li>
 										</ul>
 									</div>
 								</div>

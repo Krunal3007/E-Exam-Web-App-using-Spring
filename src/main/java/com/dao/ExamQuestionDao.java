@@ -35,10 +35,12 @@ public class ExamQuestionDao {
 	}
 	
 	public List<QuestionBean> getExamQuestions(int courseId) {
-		
-		List<QuestionBean> questions = stmt.query("select q.*,e.* from question q,examquestion e where q.questionid = e.questionid and courseid=?", 
+		List<QuestionBean> questions=null;
+		try {
+			questions = stmt.query("select q.*,e.* from question q,examquestion e where q.questionid = e.questionid and courseid=?", 
 				new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),new Object[] {courseId});
-		
+		}
+		catch(Exception e) {}
 		return questions;
 	}
 	
@@ -86,6 +88,8 @@ public class ExamQuestionDao {
 		}
 		return exambn;
 	}
+	
+	
 	
 	
 }

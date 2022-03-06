@@ -1,4 +1,4 @@
- <style>
+<style>
 .gm-control-active>img {
 	box-sizing: content-box;
 	display: none;
@@ -180,23 +180,6 @@ solid
 	-webkit-transform: translateY(-50%);
 	-ms-transform: translateY(-50%)
 }
-
-
-
-#forAllButtonsInTable{
-	color:blue;
-}
-
-
-
-
-
-
-
-
-
-
-
 </style>
 <style>
 .gm-style img {

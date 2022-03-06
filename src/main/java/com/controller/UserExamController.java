@@ -12,11 +12,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bean.CourseBean;
 import com.bean.ExamBean;
 import com.bean.QuestionBean;
 import com.bean.UserBean;
 import com.bean.UserExamBean;
+import com.dao.CourseDao;
 import com.dao.ExamQuestionDao;
+import com.dao.UserExamAnswerDao;
 import com.dao.UserExamDao;
 
 @Controller
@@ -30,17 +33,32 @@ public class UserExamController {
 	@Autowired
 	ExamQuestionDao examQuestionDao;
 	
+	@Autowired
+	CourseDao courseDao;
+	
+	@Autowired
+	UserExamAnswerDao userExamAnswerDao;
+	
+	
 	@GetMapping("/listuserexams")
-	public String listUserExams(Model model) {
+	public String listUserExams(Model model,HttpSession hts) {
+		
+		
 		
 		List<ExamBean> exams = userExamDao.getUserExams();
+		
 		model.addAttribute("exams",exams);
 		
 		return "ListUserExams";
 	}
 	
 	@GetMapping("/showuserexamquestions")
-	public String showUserExamQuestions(@RequestParam("courseId") int courseId,Model model) {
+	public String showUserExamQuestions(@RequestParam("courseId") int courseId,Model model,HttpSession hts) {
+		
+		
+		
+		CourseBean course = courseDao.getCourseById(courseId);
+		model.addAttribute("course",course);
 		
 		List<QuestionBean> questions = examQuestionDao.getExamQuestions(courseId);
 		model.addAttribute("questions",questions);
@@ -76,15 +94,67 @@ public class UserExamController {
 		ueb.setExamId(exam.getExamId());
 		
 		
+		int exId = exam.getExamId();
+		hts.setAttribute("exId", exId);
+		
 		UserBean dbuser = (UserBean)hts.getAttribute("user");
 		ueb.setUserId(dbuser.getUserId());
 		
-		userExamDao.addIntoUserExam(ueb);
+		for(int i=0;i<ueb.getUserExamQuestionId().size();i++) {
+			
+			userExamDao.addIntoUserExam(ueb,ueb.getUserExamQuestionId().get(i),ueb.getUserExamAnswer().get(i));
+		}
+		
+		
+		return "redirect:/calculateuserexamanswer";
+		
+	}
+
+	
+	@GetMapping("calculateuserexamanswer")
+	public String calculateUserExamAnswer(HttpSession hts,Model model) {
+		
+		
+		int exId = (int) hts.getAttribute("exId");
+		
+		UserBean dbuser = (UserBean)hts.getAttribute("user");
+		
+		List<UserExamBean> user = userExamAnswerDao.getUserGivenExamQuestions(dbuser.getUserId(),exId);
+		
+		
+
+		
+		int totalMarks=0;
+		int obtainMarks=0;
+		int isPass;
+		for(int i=0;i<user.size();i++) {
+			
+			QuestionBean question = userExamAnswerDao.getQuestionByQuestionId(user.get(i).getQuestionId());
+			totalMarks=question.getQuestionMarks() + totalMarks;
+			
+			
+			if(user.get(i).getUserAnswer().trim().equalsIgnoreCase(question.getQuestionAnswer().trim())) {
+				obtainMarks = question.getQuestionMarks() + obtainMarks;
+			}
+		}
+		System.out.println(totalMarks);
+		System.out.println(obtainMarks);
+		
+		if(obtainMarks < (totalMarks/2)) {
+			isPass=0;
+			System.out.println("Fail");
+		}
+		else {
+			isPass=1;
+			System.out.println("Pass");
+		}
+		
+		userExamAnswerDao.addUserExamAnswer(dbuser.getUserId(),exId,totalMarks,obtainMarks,isPass);
 		
 		
 		model.addAttribute("msg","Exam Submitted Successfully");
 		
 		return "StudentExamSubmitted";
 	}
-
+	
 }

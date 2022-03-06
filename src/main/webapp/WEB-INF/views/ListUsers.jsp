@@ -47,19 +47,17 @@
 									<div class="page-header-title">
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>List Courses</h5>
+											<h5>List Users</h5>
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-4">
 									<div class="page-header-breadcrumb">
 										<ul class=" breadcrumb breadcrumb-title">
-											<li class="breadcrumb-item"><a href="index.html"><i
+											<li class="breadcrumb-item"><a href="admindashboard"><i
 													class="feather icon-home"></i></a></li>
-											<li class="breadcrumb-item"><a href="#!">Bootstrap
-													Table</a></li>
-											<li class="breadcrumb-item"><a href="#!">Basic
-													Initialization</a></li>
+											<li class="breadcrumb-item"><a href="#!">Users</a></li>
+											<li class="breadcrumb-item"><a href="#!">List</a></li>
 										</ul>
 									</div>
 								</div>
@@ -120,8 +118,8 @@
  <td>${u.state }</td>
  <td>${u.pincode }</td>
  <td>${u.roleName }</td>
- <td><a href="deleteuser/${u.userId}">Delete</a> | 
- 	<a href="edituser?userId=${u.userId }">Edit</a>
+ <td><a href="deleteuser/${u.userId}"><button class="btn btn-primary btn-sm">Delete</button></a> 
+ 	<a href="edituser?userId=${u.userId }"><button class="btn btn-primary btn-sm">Edit</button></a>
  </td>
  
  </tr>

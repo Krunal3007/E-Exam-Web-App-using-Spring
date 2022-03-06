@@ -62,12 +62,10 @@
 								<div class="col-lg-4">
 									<div class="page-header-breadcrumb">
 										<ul class=" breadcrumb breadcrumb-title">
-											<li class="breadcrumb-item"><a href="index.html"><i
+											<li class="breadcrumb-item"><a href="admindashboard"><i
 													class="feather icon-home"></i></a></li>
-											<li class="breadcrumb-item"><a href="#!">Bootstrap
-													Table</a></li>
-											<li class="breadcrumb-item"><a href="#!">Basic
-													Initialization</a></li>
+											<li class="breadcrumb-item"><a href="#!">Questions</a></li>
+											<li class="breadcrumb-item"><a href="#!">List</a></li>
 										</ul>
 									</div>
 								</div>
@@ -124,8 +122,8 @@
 <td>${q.option2}</td>
 <td>${q.option3}</td>
 <td>${q.option4}</td>
-<td><a href="deletequestion/${q.questionId}">Delete</a> |
-	<a href="editquestion?questionId=${q.questionId}">Edit</a>
+<td><a href="deletequestion/${q.questionId}"><button class="btn btn-primary btn-sm">Delete</button></a> 
+	<a href="editquestion?questionId=${q.questionId}"><button class="btn btn-primary btn-sm">Edit</button></a>
 </td> 
 
 </tr>

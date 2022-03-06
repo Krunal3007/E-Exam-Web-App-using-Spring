@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class UserExamBean {
 	
+	
+	
 	private int userExamId;
 	private int userId;
 	private int examId;
@@ -13,7 +15,31 @@ public class UserExamBean {
 	
 	private ArrayList<String> userExamAnswer = new ArrayList<String>();
 	
+	private int questionId;
+	private String userAnswer;
 	
+	
+	public int getQuestionId() {
+		return questionId;
+	}
+	public void setQuestionId(int questionId) {
+		this.questionId = questionId;
+	}
+	public String getUserAnswer() {
+		return userAnswer;
+	}
+	public void setUserAnswer(String userAnswer) {
+		this.userAnswer = userAnswer;
+	}
+	private String courseName;
+	
+	
+	public String getCourseName() {
+		return courseName;
+	}
+	public void setCourseName(String courseName) {
+		this.courseName = courseName;
+	}
 	public ArrayList<String> getUserExamAnswer() {
 		return userExamAnswer;
 	}
