@@ -104,10 +104,10 @@
 																			<tbody>
 
 
-<c:forEach items="${questions}" var="q"> 
+<c:forEach items="${questions}" var="q" > 
 
 <tr>
-<td>${q.questionId}</td>
+<td>${q.questionId} </td>
 <td>${q.questionName}</td>
 <td>${q.questionMarks}</td>
 <td>${q.questionAnswer}</td>
@@ -116,10 +116,16 @@
 <td>${q.option2}</td>
 <td>${q.option3}</td>
 <td>${q.option4}</td>
+
 <td><a href="deleteexamquestion/${q.questionId}"><button class="btn btn-primary btn-sm">Delete</button></a> 
 	<a href="editexamquestion?questionId=${q.questionId}"><button class="btn btn-primary btn-sm">Edit</button></a> 
-	<a href="addquestiontoexam?questionId=${q.questionId }"><button class="btn btn-primary btn-sm">Add</button></a>
 	
+	<c:if test="${q.isAdded != 1 }">
+	<a href="addquestiontoexam?questionId=${q.questionId }"><button class="btn btn-primary btn-sm">Add</button></a>
+	</c:if>
+	<c:if test="${q.isAdded == 1 }">
+	<button class="btn btn-success btn-sm">Added</button>
+	</c:if>
 	
 </td> 
 

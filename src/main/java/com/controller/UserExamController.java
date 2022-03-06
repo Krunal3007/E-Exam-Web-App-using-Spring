@@ -43,9 +43,9 @@ public class UserExamController {
 	@GetMapping("/listuserexams")
 	public String listUserExams(Model model,HttpSession hts) {
 		
+		UserBean dbuser = (UserBean)hts.getAttribute("user");
 		
-		
-		List<ExamBean> exams = userExamDao.getUserExams();
+		List<ExamBean> exams = userExamDao.getUserExams(dbuser.getUserId());
 		
 		model.addAttribute("exams",exams);
 		
@@ -152,7 +152,7 @@ public class UserExamController {
 		userExamAnswerDao.addUserExamAnswer(dbuser.getUserId(),exId,totalMarks,obtainMarks,isPass);
 		
 		
-		model.addAttribute("msg","Exam Submitted Successfully");
+//		model.addAttribute("msg","Exam Submitted Successfully");
 		
 		return "StudentExamSubmitted";
 	}

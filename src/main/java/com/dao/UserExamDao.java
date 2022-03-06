@@ -16,10 +16,11 @@ public class UserExamDao {
 	@Autowired
 	JdbcTemplate stmt;
 	
-	public List<ExamBean> getUserExams() {
+	public List<ExamBean> getUserExams(int userId) {
 		
-		List<ExamBean> exam = stmt.query("select e.*,c.coursename from exam e,course c where e.courseid=c.courseid", 
-				new BeanPropertyRowMapper<ExamBean>(ExamBean.class));
+		List<ExamBean> exam = stmt.query("select e.*,c.coursename from exam e,course c where e.examid not in (select examid from userexam where userid=?)"
+				+ "and e.courseid=c.courseid", 
+				new BeanPropertyRowMapper<ExamBean>(ExamBean.class),new Object[] {userId});
 	
 		return exam;
 	}

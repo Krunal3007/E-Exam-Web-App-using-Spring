@@ -17,6 +17,14 @@ public class QuestionBean {
 	private int totalMarks;
 	private int totalQuestions;
 	
+	private int isAdded;
+	
+	public int getIsAdded() {
+		return isAdded;
+	}
+	public void setIsAdded(int isAdded) {
+		this.isAdded = isAdded;
+	}
 	public int getTotalMarks() {
 		return totalMarks;
 	}

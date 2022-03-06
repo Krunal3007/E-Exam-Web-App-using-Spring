@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -69,9 +70,19 @@ public class ExamQuestionController {
 		
 		int courseId =(int)hts.getAttribute("courseId");
 		
+	
 		List<QuestionBean> questions = examQuestionDao.getAllExamQuestions(courseId);
 		
+	
 		
+		List<QuestionBean> questionsOfExam = examQuestionDao.getExamQuestions(courseId);
+		for(int i=0;i<questions.size();i++) {
+			for(int j=0;j<questionsOfExam.size();j++) {
+			if(questionsOfExam.get(j).getQuestionId() == questions.get(i).getQuestionId()) {
+				questions.get(i).setIsAdded(1);
+			}
+			}
+		}
 		model.addAttribute("questions",questions);
 		
 		return "ListExamQuestions";

@@ -4,12 +4,19 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Exam Submitted</title>
+<jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
 
-${msg }  <br><br>
-<a href="studentdashboard">Goto Home Page</a>
+<div class="alert alert-success" role="alert">
+  Exam Submitted Successfully.
+</div>
+
+<a href="studentdashboard"><button class="btn btn-primary">Goto Home Page</button></a>
+
+
+
 
 </body>
 </html>
