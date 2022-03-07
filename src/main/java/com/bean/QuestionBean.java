@@ -19,6 +19,16 @@ public class QuestionBean {
 	
 	private int isAdded;
 	
+	
+	private String userAnswer;
+	
+	
+	public String getUserAnswer() {
+		return userAnswer;
+	}
+	public void setUserAnswer(String userAnswer) {
+		this.userAnswer = userAnswer;
+	}
 	public int getIsAdded() {
 		return isAdded;
 	}

@@ -113,6 +113,9 @@ public class ExamQuestionController {
 		
 		
 		List<QuestionBean> questions = examQuestionDao.getExamQuestions(courseId);
+		for(int i=0;i<questions.size();i++) {
+			questions.get(i).setCourseName(courseName);
+		}
 		model.addAttribute("questions",questions);
 		
 		return "ListAddedExamQuestions";
@@ -164,7 +167,15 @@ public class ExamQuestionController {
 		
 		int courseId =(int) hts.getAttribute("courseId");
 		
+		QuestionBean que = examQuestionDao.getCourseNameByCourseId(courseId);
+		String cName = que.getCourseName();
+		
+		
+		
 		List<QuestionBean> questions = examQuestionDao.getExamQuestions(courseId);
+		for(int i=0;i<questions.size();i++) {
+			questions.get(i).setCourseName(cName);
+		}
 		model.addAttribute("questions",questions);
 		
 		return "ListAddedExamQuestions";

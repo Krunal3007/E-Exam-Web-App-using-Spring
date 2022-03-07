@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.CourseBean;
@@ -91,6 +92,31 @@ public class UserExamAnswerController {
 		
 		
 		return "ListUserResult";
+	}
+	
+	@GetMapping("resultdetails")
+	public String resultDetails(@RequestParam("examId")int examId,@RequestParam("userId")int userId,Model model) {
+		
+		
+//		ExamBean exam = userExamAnswerDao.getCourseIdByExamId(examId);
+		
+		List<UserExamBean> ueb = userExamAnswerDao.getUserGivenExamQuestions(userId, examId);
+		List<QuestionBean> qb = new ArrayList<>();
+		for(int i=0;i<ueb.size();i++) {
+			QuestionBean sq = userExamAnswerDao.getQuestionByQuestionId(ueb.get(i).getQuestionId());
+			qb.add(sq);
+		}
+		
+		for(int i=0;i<qb.size();i++) {
+			qb.get(i).setUserAnswer(ueb.get(i).getUserAnswer());
+		}
+		
+//		model.addAttribute("userdata",ueb);
+		model.addAttribute("data",qb);
+		
+		
+		
+		return "ListUserResultDetails";
 	}
 	
 	

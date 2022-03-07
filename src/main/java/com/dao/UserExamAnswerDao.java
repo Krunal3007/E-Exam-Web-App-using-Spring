@@ -46,7 +46,7 @@ public class UserExamAnswerDao {
 	
 	public List<UserExamBean> getUserGivenExamQuestions(int userId,int examId) {
 		
-		List<UserExamBean> user = stmt.query("select * from userexam where userid=? and examid=?", 
+		List<UserExamBean> user = stmt.query("select * from userexam where userid=? and examid=? ", 
 				new BeanPropertyRowMapper<UserExamBean>(UserExamBean.class),new Object[] {userId,examId});
 	
 		return user;
@@ -55,7 +55,7 @@ public class UserExamAnswerDao {
 	
 	public QuestionBean getQuestionByQuestionId(int questionId) {
 		
-		QuestionBean question = stmt.queryForObject("select * from question where questionid=?", 
+		QuestionBean question = stmt.queryForObject("select * from question where questionid=? ", 
 				new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),new Object[] {questionId});
 		
 		return question;

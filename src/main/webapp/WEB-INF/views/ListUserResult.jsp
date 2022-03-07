@@ -92,6 +92,7 @@
 <th>Total Marks</th>
 <th>Obtain Marks</th>
 <th>Status</th>
+<th>Action</th>
 																				</tr>
 																			</thead>
 																			<tbody>
@@ -106,6 +107,7 @@
 <c:if test="${userExamAnswer.isPass == 1 }">Pass</c:if>
 <c:if test="${userExamAnswer.isPass == 0}">Fail</c:if>
 </td>
+<td><a href="resultdetails?examId=${userExamAnswer.examId}&userId=${userExamAnswer.userId}"><button class="btn btn-primary btn-sm">Details</button></a></td>
 
 </tr>
 

@@ -89,7 +89,11 @@ public class ExamQuestionDao {
 		return exambn;
 	}
 	
-	
+	public QuestionBean getCourseNameByCourseId(int courseId) {
+		QuestionBean que = stmt.queryForObject("select coursename from course where courseid=?", 
+				new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),courseId);
+		return que;
+	}
 	
 	
 }

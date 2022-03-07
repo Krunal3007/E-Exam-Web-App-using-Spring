@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
-    
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>List Added Exam Questions</title>
+<title>Result Details</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
@@ -23,16 +23,15 @@
 
 
 
-
 <div id="pcoded" class="pcoded iscollapsed">
 		<div class="pcoded-overlay-box"></div>
 		<div class="pcoded-container navbar-wrapper">
-			<jsp:include page="AdminHeader.jsp"></jsp:include>
+			<jsp:include page="StudentHeader.jsp"></jsp:include>
 
 			<div class="pcoded-main-container">
 				<div class="pcoded-wrapper">
 
-					<jsp:include page="AdminSideBar.jsp"></jsp:include>
+					<jsp:include page="StudentSideBar.jsp"></jsp:include>
 
 					<div class="pcoded-content">
 
@@ -42,17 +41,17 @@
 									<div class="page-header-title">
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>List Exam Questions</h5>
+											<h5>Result Details</h5>
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-4">
 									<div class="page-header-breadcrumb">
 										<ul class=" breadcrumb breadcrumb-title">
-											<li class="breadcrumb-item"><a href="admindashboard"><i
+											<li class="breadcrumb-item"><a href="studentdashboard"><i
 													class="feather icon-home"></i></a></li>
-											<li class="breadcrumb-item"><a href="#!">Exams</a></li>
-											<li class="breadcrumb-item"><a href="#!">List Exam Questions</a></li>
+											<li class="breadcrumb-item"><a href="#!">Result</a></li>
+											<li class="breadcrumb-item"><a href="#!">List</a></li>
 										</ul>
 									</div>
 								</div>
@@ -71,6 +70,7 @@
 													<div class="card-header">
 														
 														
+
 													</div>
 													<div class="card-block">
 														<div class="dt-responsive table-responsive">
@@ -81,41 +81,32 @@
 																		<table id="listRoles" class="table table-striped">
 																			<thead>
 																				<tr role="row">
-																					
 <th>Question Id</th>
 <th>Question Name</th>
-<th>Question Marks</th>
-<th>Question Answer</th>
-<th>Course Name</th>
 <th>Option 1</th>
 <th>Option 2</th>
 <th>Option 3</th>
 <th>Option 4</th>
-<th>Action</th>
-
-
+<th>Your Answer</th>
+<th>Actual Answer</th>
+<th>Marks</th>
 																				</tr>
 																			</thead>
 																			<tbody>
 
 
-<c:forEach items="${questions}" var="q"> 
+<c:forEach items="${data }" var="d">
 
 <tr>
-<td>${q.questionId}</td>
-<td>${q.questionName}</td>
-<td>${q.questionMarks}</td>
-<td>${q.questionAnswer}</td>
-<td>${q.courseName}</td>
-<td>${q.option1}</td>
-<td>${q.option2}</td>
-<td>${q.option3}</td>
-<td>${q.option4}</td>
-<td><a href="deletequestionfromexamquestion/${q.questionId}"><button class="btn btn-primary btn-sm">Delete</button></a> 
-	
-
-	
-</td> 
+<td>${d.questionId}</td>
+<td>${d.questionName }</td>
+<td>${d.option1 }</td>
+<td>${d.option2 }</td>
+<td>${d.option3 }</td>
+<td>${d.option4 }</td>
+<td>${d.userAnswer }</td>
+<td>${d.questionAnswer }</td>
+<td>${d.questionMarks }</td>
 
 </tr>
 
@@ -164,8 +155,6 @@
 				$('#listRoles').DataTable();
 			});
 		</script>
-
-
 
 
 

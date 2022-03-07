@@ -83,10 +83,12 @@ public class UserExamController {
 //			System.out.println(tmp.get(i));
 //		}
 		
+		
 		ueb.getUserExamAnswer().addAll(tmp);
 		
 //		for(int i=0;i<ueb.getUserExamAnswer().size();i++) {
-//			System.out.println(ueb.getUserExamAnswer().get(i));
+			System.out.println("stored id "+ueb.getUserExamQuestionId());
+			System.out.println("stored answer "+ueb.getUserExamAnswer());
 //		}
 		QuestionBean question = examQuestionDao.getCourseIdByQuestionId(ueb.getUserExamQuestionId().get(0));
 		
@@ -131,6 +133,7 @@ public class UserExamController {
 			
 			QuestionBean question = userExamAnswerDao.getQuestionByQuestionId(user.get(i).getQuestionId());
 			totalMarks=question.getQuestionMarks() + totalMarks;
+			
 			
 			
 			if(user.get(i).getUserAnswer().trim().equalsIgnoreCase(question.getQuestionAnswer().trim())) {
