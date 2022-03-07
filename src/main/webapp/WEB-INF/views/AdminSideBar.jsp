@@ -40,6 +40,14 @@
 
 
 
+					<li class=" "><a href="admindashboard"
+						class="waves-effect waves-dark"> <span class="pcoded-micon">
+								<i class="feather icon-feather"></i>
+						</span> <span class="pcoded-mtext">Home</span>
+					</a></li>
+						
+					
+					
 
 					<li class=" "><a href="listusers"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">

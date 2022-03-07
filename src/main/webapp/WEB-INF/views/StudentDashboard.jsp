@@ -41,9 +41,8 @@
 									<div class="page-header-title">
 										<i class="feather icon-home bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>Dashboard CRM</h5>
-											<span>lorem ipsum dolor sit amet, consectetur
-												adipisicing elit</span>
+											<h3>Welcome ${user.firstName }</h3>
+											<span>Have a great day ahead!!!</span>
 										</div>
 									</div>
 								</div>
@@ -53,7 +52,7 @@
 											<li class="breadcrumb-item"><a href="index.html"><i
 													class="feather icon-home"></i></a></li>
 											<li class="breadcrumb-item"><a href="#!">Dashboard
-													CRM</a></li>
+													</a></li>
 										</ul>
 									</div>
 								</div>
@@ -67,85 +66,34 @@
 
 										<div class="row">
 
-											<div class="col-xl-3 col-md-6">
+											
+											<div class="col-xl-5 col-md-6 " >
 												<div class="card prod-p-card card-red">
 													<div class="card-body">
 														<div class="row align-items-center m-b-30">
 															<div class="col">
-																<h6 class="m-b-5 text-white">Total Profit</h6>
-																<h3 class="m-b-0 f-w-700 text-white">$1,783</h3>
+																<h6 class="m-b-5 text-white"><a href="listuserexams" class="h4">Remaining Exams</a></h6>
+																<h3 class="m-b-0 f-w-700 text-white">${remainingExams }</h3>
 															</div>
 															<div class="col-auto">
 																<i class="fas fa-money-bill-alt text-c-red f-18"></i>
 															</div>
 														</div>
-														<p class="m-b-0 text-white">
+														<p>&nbsp;</p>
+														<!--  <p class="m-b-0 text-white">
 															<span class="label label-danger m-r-10">+11%</span>From
 															Previous Month
-														</p>
+														</p>  -->
 													</div>
 												</div>
 											</div>
-											<div class="col-xl-3 col-md-6">
-												<div class="card prod-p-card card-blue">
-													<div class="card-body">
-														<div class="row align-items-center m-b-30">
-															<div class="col">
-																<h6 class="m-b-5 text-white">Total Orders</h6>
-																<h3 class="m-b-0 f-w-700 text-white">15,830</h3>
-															</div>
-															<div class="col-auto">
-																<i class="fas fa-database text-c-blue f-18"></i>
-															</div>
-														</div>
-														<p class="m-b-0 text-white">
-															<span class="label label-primary m-r-10">+12%</span>From
-															Previous Month
-														</p>
-													</div>
-												</div>
-											</div>
-											<div class="col-xl-3 col-md-6">
-												<div class="card prod-p-card card-green">
-													<div class="card-body">
-														<div class="row align-items-center m-b-30">
-															<div class="col">
-																<h6 class="m-b-5 text-white">Average Price</h6>
-																<h3 class="m-b-0 f-w-700 text-white">$6,780</h3>
-															</div>
-															<div class="col-auto">
-																<i class="fas fa-dollar-sign text-c-green f-18"></i>
-															</div>
-														</div>
-														<p class="m-b-0 text-white">
-															<span class="label label-success m-r-10">+52%</span>From
-															Previous Month
-														</p>
-													</div>
-												</div>
-											</div>
-											<div class="col-xl-3 col-md-6">
-												<div class="card prod-p-card card-yellow">
-													<div class="card-body">
-														<div class="row align-items-center m-b-30">
-															<div class="col">
-																<h6 class="m-b-5 text-white">Product Sold</h6>
-																<h3 class="m-b-0 f-w-700 text-white">6,784</h3>
-															</div>
-															<div class="col-auto">
-																<i class="fas fa-tags text-c-yellow f-18"></i>
-															</div>
-														</div>
-														<p class="m-b-0 text-white">
-															<span class="label label-warning m-r-10">+52%</span>From
-															Previous Month
-														</p>
-													</div>
-												</div>
-											</div>
+											
+											
+											
+											
 
 
-											<div class="col-xl-6 col-md-12">
+											<div class="col-xl-8 col-md-12">
 												<div class="card latest-update-card">
 													<div class="card-header">
 														<h5>What's New</h5>

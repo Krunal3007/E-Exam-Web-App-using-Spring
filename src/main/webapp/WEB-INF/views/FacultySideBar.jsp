@@ -38,30 +38,50 @@
 
 
 
-					<li class=" "><a href="studentdashboard"
+
+
+					<li class=" "><a href="facultydashboard"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">
 								<i class="feather icon-feather"></i>
 						</span> <span class="pcoded-mtext">Home</span>
 					</a></li>
+						
+					
+					
 
-
-
-					<li class=" "><a href="listuserexams"
+					<li class=" "><a href="listusers"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">
 								<i class="feather icon-feather"></i>
-						</span> <span class="pcoded-mtext">Show Exams</span>
+						</span> <span class="pcoded-mtext">List Users</span>
 					</a></li>
 
 
 
-					<li class=" "><a href="usergivenexams"
+					<li class=" "><a href="listroles"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">
 								<i class="feather icon-feather"></i>
-						</span> <span class="pcoded-mtext">Show Records</span>
+						</span> <span class="pcoded-mtext">List Roles</span>
 					</a></li>
 
+
+					<li class=" "><a href="listcourses"
+						class="waves-effect waves-dark"> <span class="pcoded-micon">
+								<i class="feather icon-feather"></i>
+						</span> <span class="pcoded-mtext">List Courses</span>
+					</a></li>
+					
+					<li class=" "><a href="listquestions"
+						class="waves-effect waves-dark"> <span class="pcoded-micon">
+								<i class="feather icon-feather"></i>
+						</span> <span class="pcoded-mtext">List Questions</span>
+					</a></li>
 
 					
+					<li class=" "><a href="listexams"
+						class="waves-effect waves-dark"> <span class="pcoded-micon">
+								<i class="feather icon-feather"></i>
+						</span> <span class="pcoded-mtext">List Exams</span>
+					</a></li>
 					
 					
 					

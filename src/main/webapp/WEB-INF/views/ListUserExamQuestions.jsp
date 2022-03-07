@@ -102,7 +102,7 @@
 	
 		<br>
 		
-		<input type="radio"  name="answer[${q.questionId }]"  value="${q.option1 } " checked="checked">
+		<input type="radio"  name="answer[${q.questionId }]"  value="${q.option1 } " >
 		${q.option1 }
 		<br>
 			
