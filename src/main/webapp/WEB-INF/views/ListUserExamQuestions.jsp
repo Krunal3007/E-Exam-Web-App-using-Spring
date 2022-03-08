@@ -92,35 +92,35 @@
 
 
 <ol type="1">
-<c:forEach items="${questions}" var="q" >
+<c:forEach items="${questions}" var="q" varStatus="status">
 	
 	Marks : ${q.questionMarks }
 	
 <li>
 	${q.questionName } 
-	<input type="hidden" name="userExamQuestionId" value="${q.questionId }">
+	<input type="hidden" name="userExamQuestionId" value="${q.questionId }" >
 	
 		<br>
 		
-		<input type="radio"  name="answer[${q.questionId }]"  value="${q.option1 } " >
+		<input type="radio"  name="answer[${status.index }]"  value="${q.option1 } " >
 		${q.option1 }
 		<br>
 			
 		
 	
-		<input type="radio"  name="answer[${q.questionId }]" value="${q.option2 }">
+		<input type="radio"  name="answer[${status.index }]" value="${q.option2 }">
 		${q.option2 }
 		<br>
 			
 		
 			
-		<input type="radio" name="answer[${q.questionId }]" value="${q.option3 }">
+		<input type="radio" name="answer[${status.index }]" value="${q.option3 }">
 		${q.option3 }
 		<br>
 			
 		
 		
-		<input type="radio"  name="answer[${q.questionId }]" value="${q.option4 }">
+		<input type="radio"  name="answer[${status.index }]" value="${q.option4 }">
 		${q.option4 }
 		
 		

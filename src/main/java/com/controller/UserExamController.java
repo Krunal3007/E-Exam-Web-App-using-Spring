@@ -79,9 +79,9 @@ public class UserExamController {
 				
 			}
 		}
-//		for(int i=0;i<tmp.size();i++) {
-//			System.out.println(tmp.get(i));
-//		}
+		for(int i=0;i<tmp.size();i++) {
+			System.out.println(tmp.get(i));
+		}
 		
 		
 		ueb.getUserExamAnswer().addAll(tmp);

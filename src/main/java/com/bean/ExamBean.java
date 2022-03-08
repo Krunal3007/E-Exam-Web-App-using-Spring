@@ -12,6 +12,15 @@ public class ExamBean {
 	
 	private String courseName;
 	
+	
+	private int addInExam;
+	
+	public int getAddInExam() {
+		return addInExam;
+	}
+	public void setAddInExam(int addInExam) {
+		this.addInExam = addInExam;
+	}
 	public String getCourseName() {
 		return courseName;
 	}

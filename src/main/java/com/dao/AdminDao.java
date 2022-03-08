@@ -12,6 +12,7 @@ import com.bean.ExamBean;
 import com.bean.QuestionBean;
 import com.bean.RoleBean;
 import com.bean.UserBean;
+import com.bean.UserExamAnswerBean;
 
 @Repository
 public class AdminDao {
@@ -55,6 +56,28 @@ public class AdminDao {
 		
 		return stmt.query("select * from exam", new BeanPropertyRowMapper<ExamBean>(ExamBean.class));
 		
+	}
+	
+	public List<UserExamAnswerBean> getAllUsersResult() {
+		
+		List<UserExamAnswerBean> ueb = stmt.query("select * from userexamanswer",
+				new BeanPropertyRowMapper<UserExamAnswerBean>(UserExamAnswerBean.class));
+		
+		return ueb;
+		
+	}
+	
+	public UserBean getUserbyUserId(int userId){
+		
+		return stmt.queryForObject("select * from users where userid=?", 
+				new BeanPropertyRowMapper<UserBean>(UserBean.class),new Object[] {userId});
+		
+	}
+	
+	public CourseBean getCourseById(int courseId) {
+		
+		return stmt.queryForObject("select * from course where courseid=?",
+				new BeanPropertyRowMapper<CourseBean>(CourseBean.class),new Object[] {courseId});
 	}
 	
 }

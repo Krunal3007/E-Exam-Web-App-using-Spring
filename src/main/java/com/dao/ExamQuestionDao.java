@@ -27,10 +27,12 @@ public class ExamQuestionDao {
 	}
 	
 	public List<QuestionBean> getAllExamQuestions(int courseId) {
-		
-		List<QuestionBean> questions = stmt.query("select q.*,c.coursename from question q,course c where q.courseid=c.courseid and q.courseid=?", 
+		List<QuestionBean> questions=null;
+		try {
+		 questions = stmt.query("select q.*,c.coursename from question q,course c where q.courseid=c.courseid and q.courseid=?", 
 				new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),new Object[] {courseId});
-		
+		}
+		catch(Exception e) {}
 		return questions;
 	}
 	

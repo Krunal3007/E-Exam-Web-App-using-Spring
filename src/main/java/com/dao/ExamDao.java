@@ -67,5 +67,18 @@ public void updateMarksCount(ExamBean exam) {
 	stmt.update("update exam set noofquestion=?,totalmarks=? where examid=?",exam.getNoOfQuestion(),exam.getTotalMarks(),exam.getExamId());
 }
 
+public List<QuestionBean> getRandomQuestions(int courseId) {
+	
+	return stmt.query("select * from question where courseid=? order by random() ", 
+			new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),new Object[] {courseId});
+	
+}
+
+public void insertIntoExamQuestion(int examId,int questionId) {
+	
+	stmt.update("insert into examquestion(examid,questionid) values(?,?)",examId,questionId);
+	
+}
+
 
 }

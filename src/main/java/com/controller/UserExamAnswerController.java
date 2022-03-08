@@ -82,11 +82,14 @@ public class UserExamAnswerController {
 	
 	
 	@GetMapping("viewuserresult")
-	public String viewUserResult(@RequestParam("examId") int examId,HttpSession hts,Model model) {
+	public String viewUserResult(@RequestParam("examId") int examId,@RequestParam("examName")String examName,HttpSession hts,Model model) {
 		
 		UserBean dbuser = (UserBean)hts.getAttribute("user");
 		
 		UserExamAnswerBean userExamAnswer = userExamAnswerDao.viewResult(dbuser.getUserId(),examId);
+		userExamAnswer.setExamName(examName);
+		userExamAnswer.setFirstName(dbuser.getFirstName());
+		
 		model.addAttribute("userExamAnswer",userExamAnswer);
 		
 		

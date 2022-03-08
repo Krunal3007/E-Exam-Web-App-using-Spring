@@ -13,26 +13,7 @@
 
 				<ul class="pcoded-item pcoded-left-item" item-border="true"
 					item-border-style="solid" subitem-border="false">
-					<li class="pcoded-hasmenu" dropdown-icon="style1"
-						subitem-icon="style1"><a href="javascript:void(0)"
-						class="waves-effect waves-dark"> <span class="pcoded-micon">
-								<i class="feather icon-clipboard"></i>
-						</span> <span class="pcoded-mtext">Form</span>
-					</a>
-						<ul class="pcoded-submenu">
-							<li class=" "><a href="form-elements-component.html"
-								class="waves-effect waves-dark"> <span class="pcoded-mtext">Components</span>
-							</a></li>
-							<li class=" "><a href="form-elements-add-on.html"
-								class="waves-effect waves-dark"> <span class="pcoded-mtext">Add-On</span>
-							</a></li>
-							<li class=" "><a href="form-elements-advance.html"
-								class="waves-effect waves-dark"> <span class="pcoded-mtext">Advance</span>
-							</a></li>
-							<li class=" "><a href="form-validation.html"
-								class="waves-effect waves-dark"> <span class="pcoded-mtext">Validation</span>
-							</a></li>
-						</ul></li>
+					
 
 
 
@@ -42,7 +23,7 @@
 
 					<li class=" "><a href="admindashboard"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">
-								<i class="feather icon-feather"></i>
+								<i class="feather icon-home"></i>
 						</span> <span class="pcoded-mtext">Home</span>
 					</a></li>
 						
@@ -51,7 +32,7 @@
 
 					<li class=" "><a href="listusers"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">
-								<i class="feather icon-feather"></i>
+								<i class="feather icon-user-plus"></i>
 						</span> <span class="pcoded-mtext">List Users</span>
 					</a></li>
 
@@ -59,31 +40,35 @@
 
 					<li class=" "><a href="listroles"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">
-								<i class="feather icon-feather"></i>
+								<i class="feather icon-users"></i>
 						</span> <span class="pcoded-mtext">List Roles</span>
 					</a></li>
 
 
 					<li class=" "><a href="listcourses"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">
-								<i class="feather icon-feather"></i>
+								<i class="feather icon-book"></i>
 						</span> <span class="pcoded-mtext">List Courses</span>
 					</a></li>
 					
 					<li class=" "><a href="listquestions"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">
-								<i class="feather icon-feather"></i>
+								<i class="feather icon-edit-2"></i>
 						</span> <span class="pcoded-mtext">List Questions</span>
 					</a></li>
 
 					
 					<li class=" "><a href="listexams"
 						class="waves-effect waves-dark"> <span class="pcoded-micon">
-								<i class="feather icon-feather"></i>
+								<i class="feather icon-watch"></i>
 						</span> <span class="pcoded-mtext">List Exams</span>
 					</a></li>
 					
-					
+					<li class=" "><a href="getallusersresult"
+						class="waves-effect waves-dark"> <span class="pcoded-micon">
+								<i class="feather icon-tv"></i>
+						</span> <span class="pcoded-mtext">Results</span>
+					</a></li>
 					
 					
 

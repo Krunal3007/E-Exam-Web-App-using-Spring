@@ -8,6 +8,22 @@ public class UserExamAnswerBean {
 	private int totalMarks;
 	private int obtainMarks;
 	private int isPass;
+	
+	private String firstName;
+	private String examName;
+	
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getExamName() {
+		return examName;
+	}
+	public void setExamName(String examName) {
+		this.examName = examName;
+	}
 	public int getUserExamAnswerId() {
 		return userExamAnswerId;
 	}

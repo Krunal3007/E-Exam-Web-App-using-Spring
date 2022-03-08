@@ -1,5 +1,6 @@
 package com.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -66,6 +67,18 @@ public class ExamController {
 		
 				
 		examDao.addExam(exam);
+		
+		ExamBean eb	= examQuestionDao.getExamByCourseId(exam.getCourseId());
+		
+		int n = exam.getAddInExam();
+		System.out.println("n = "+n);
+		System.out.println(exam.getCourseId());
+
+		List<QuestionBean> q = examDao.getRandomQuestions(exam.getCourseId());
+
+		for(int i=0;i<n;i++) {
+			examDao.insertIntoExamQuestion(eb.getExamId(),q.get(i).getQuestionId() );
+		}
 		
 		return "redirect:/listexams";
 	}

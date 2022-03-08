@@ -108,7 +108,10 @@ public class ExamQuestionController {
 		
 		
 		List<QuestionBean> questionsAll = examQuestionDao.getAllExamQuestions(courseId);
+	
+		if(questionsAll.size() != 0) {
 		String courseName = questionsAll.get(0).getCourseName();
+		
 		model.addAttribute("courseName",courseName);
 		
 		
@@ -117,8 +120,11 @@ public class ExamQuestionController {
 			questions.get(i).setCourseName(courseName);
 		}
 		model.addAttribute("questions",questions);
+		}
+		
 		
 		return "ListAddedExamQuestions";
+		
 	}
 	
 	
