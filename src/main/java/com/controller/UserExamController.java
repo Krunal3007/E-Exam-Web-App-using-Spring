@@ -63,6 +63,13 @@ public class UserExamController {
 		List<QuestionBean> questions = examQuestionDao.getExamQuestions(courseId);
 		model.addAttribute("questions",questions);
 		
+		int totalMarks=0;
+		for(int i=0;i<questions.size();i++) {
+			totalMarks = questions.get(i).getQuestionMarks() + totalMarks;
+		}
+		model.addAttribute("count",questions.size());
+		model.addAttribute("totalMarks",totalMarks);
+		
 		return "ListUserExamQuestions";
 	}
 	

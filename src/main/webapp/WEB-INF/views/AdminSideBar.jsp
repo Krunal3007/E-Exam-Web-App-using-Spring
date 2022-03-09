@@ -71,6 +71,30 @@
 					</a></li>
 					
 					
+					
+					
+					
+					
+					<li class="pcoded-hasmenu" dropdown-icon="style1"
+						subitem-icon="style1"><a href="javascript:void(0)"
+						class="waves-effect waves-dark"> <span class="pcoded-micon">
+								<i class="feather icon-clipboard"></i>
+						</span> <span class="pcoded-mtext">Reports</span>
+					</a>
+						<ul class="pcoded-submenu">
+							<li class=" "><a href="userreport?roleId=0"
+								class="waves-effect waves-dark"> <span class="pcoded-mtext">User</span>
+							</a></li>
+							<li class=" "><a href="studentreport?userId=0"
+								class="waves-effect waves-dark"> <span class="pcoded-mtext">Student</span>
+							</a></li>
+							<li class=" "><a href="questionreport?courseId=0"
+								class="waves-effect waves-dark"> <span class="pcoded-mtext">Question</span>
+							</a></li> 
+						</ul></li> 
+					
+					
+					
 
 
 

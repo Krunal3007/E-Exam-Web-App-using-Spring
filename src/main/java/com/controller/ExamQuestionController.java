@@ -73,7 +73,12 @@ public class ExamQuestionController {
 	
 		List<QuestionBean> questions = examQuestionDao.getAllExamQuestions(courseId);
 		
-	
+		int totalMarks=0;
+		for(int i=0;i<questions.size();i++) {
+			totalMarks = questions.get(i).getQuestionMarks() + totalMarks;
+		}
+		model.addAttribute("count",questions.size());
+		model.addAttribute("totalMarks",totalMarks);
 		
 		List<QuestionBean> questionsOfExam = examQuestionDao.getExamQuestions(courseId);
 		for(int i=0;i<questions.size();i++) {
@@ -114,11 +119,16 @@ public class ExamQuestionController {
 		
 		model.addAttribute("courseName",courseName);
 		
-		
+		int count=0;
+		int totalMarks=0;
 		List<QuestionBean> questions = examQuestionDao.getExamQuestions(courseId);
 		for(int i=0;i<questions.size();i++) {
 			questions.get(i).setCourseName(courseName);
+			totalMarks = questions.get(i).getQuestionMarks() + totalMarks;
+			count++;
 		}
+		model.addAttribute("count",count);
+		model.addAttribute("totalMarks",totalMarks);
 		model.addAttribute("questions",questions);
 		}
 		
@@ -177,11 +187,16 @@ public class ExamQuestionController {
 		String cName = que.getCourseName();
 		
 		
-		
+		int count=0;
+		int totalMarks=0;
 		List<QuestionBean> questions = examQuestionDao.getExamQuestions(courseId);
 		for(int i=0;i<questions.size();i++) {
 			questions.get(i).setCourseName(cName);
+			totalMarks = questions.get(i).getQuestionMarks() + totalMarks;
+			count++;
 		}
+		model.addAttribute("count",count);
+		model.addAttribute("totalMarks",totalMarks);
 		model.addAttribute("questions",questions);
 		
 		return "ListAddedExamQuestions";

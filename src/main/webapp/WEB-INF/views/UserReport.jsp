@@ -1,16 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
     
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>      
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>List Added Exam Questions</title>
+<title>Report Users</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 </head>
 <body>
+
+
+
+
+
 
 
 
@@ -42,7 +47,7 @@
 									<div class="page-header-title">
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>List Exam Questions</h5>
+											<h5>Report Users</h5>
 										</div>
 									</div>
 								</div>
@@ -51,8 +56,8 @@
 										<ul class=" breadcrumb breadcrumb-title">
 											<li class="breadcrumb-item"><a href="admindashboard"><i
 													class="feather icon-home"></i></a></li>
-											<li class="breadcrumb-item"><a href="#!">Exams</a></li>
-											<li class="breadcrumb-item"><a href="#!">List Exam Questions</a></li>
+											<li class="breadcrumb-item"><a href="#!">Report</a></li>
+											<li class="breadcrumb-item"><a href="#!">User</a></li>
 										</ul>
 									</div>
 								</div>
@@ -69,60 +74,60 @@
 											<div class="col-sm-12">
 												<div class="card">
 													<div class="card-header">
-														 
-														<h4 class="btn btn-secondary  ">Total Questions : ${count }</h4>
-														<h4 class="btn btn-secondary  ">Total Marks : ${totalMarks }</h4>
+														
+														<a href="newuser"><button class="btn btn-primary">Add User</button></a>
+														<button type="button" class="btn btn-primary"
+																data-toggle="modal" data-target="#exampleModal">
+																Role</button>
+
 													</div>
-													
 													<div class="card-block">
 														<div class="dt-responsive table-responsive">
 															<div id="order-table_wrapper"
 																class="dataTables_wrapper dt-bootstrap4">
 																<div class="row">
 																	<div class="col-xs-12 col-sm-12">
-																	
 																		<table id="listRoles" class="table table-striped">
 																			<thead>
 																				<tr role="row">
-																					
-<th>Question Id</th>
-<th>Question Name</th>
-<th>Question Marks</th>
-<th>Question Answer</th>
-<th>Course Name</th>
-<th>Option 1</th>
-<th>Option 2</th>
-<th>Option 3</th>
-<th>Option 4</th>
+																					<th>User Id</th>
+<th>First Name</th>
+<th>Email</th>
+<th>Password</th>
+<th>Xender</th>
+<th>Phone No</th>
+<th>Address</th>
+<th>City</th>
+<th>State</th>
+<th>Pincode</th>
+<th>RoleName</th>
 <th>Action</th>
-
-
 																				</tr>
 																			</thead>
 																			<tbody>
 
 
-<c:forEach items="${questions}" var="q"> 
-
-<tr>
-<td>${q.questionId}</td>
-<td>${q.questionName}</td>
-<td>${q.questionMarks}</td>
-<td>${q.questionAnswer}</td>
-<td>${q.courseName}</td>
-<td>${q.option1}</td>
-<td>${q.option2}</td>
-<td>${q.option3}</td>
-<td>${q.option4}</td>
-<td><a href="deletequestionfromexamquestion/${q.questionId}"><button class="btn btn-primary btn-sm">Delete</button></a> 
-	
-
-	
-</td> 
-
-</tr>
-
-</c:forEach>
+																			<c:forEach items="${users}" var="u">
+ 
+ <tr>
+ <td>${u.userId}</td>
+ <td>${u.firstName }</td>
+ <td>${u.email }</td>
+ <td>${u.password }</td>
+ <td>${u.xender }</td>
+ <td>${u.phoneNo }</td>
+ <td>${u.address }</td>
+ <td>${u.city }</td>
+ <td>${u.state }</td>
+ <td>${u.pincode }</td>
+ <td>${u.roleName }</td>
+ <td><a href="deleteuser/${u.userId}"><button class="btn btn-primary btn-sm">Delete</button></a> 
+ 	<a href="edituser?userId=${u.userId }"><button class="btn btn-primary btn-sm">Edit</button></a>
+ </td>
+ 
+ </tr>
+ 
+ </c:forEach>
 
 
 
@@ -162,15 +167,50 @@
 
 		<jsp:include page="AllJs.jsp"></jsp:include>
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			$(document).ready(function() {
 				$('#listRoles').DataTable();
 			});
-		</script>
+		</script>-->
 
 
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Report -
+							User - Role</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form action="userreport" method="get">
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Select Role </label>
+								<div class="col-sm-10">
+									<select name="roleId" class="form-control">
 
+										<c:forEach items="${roles}" var="r">
+											<option value="${r.roleId}">${r.roleName}</option>
+										</c:forEach>
 
+									</select>
+								</div>
+							</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Generate</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
 
 
 

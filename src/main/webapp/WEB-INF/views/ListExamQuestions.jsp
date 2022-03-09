@@ -77,6 +77,8 @@
 													<div class="card-header">
 														
 														<a href="newexamquestion"><button class="btn btn-primary">Add Question</button></a>
+														<a class="btn btn-secondary text-white">Total Questions : ${count }</a>
+														<a class="btn btn-secondary text-white">Total Marks : ${totalMarks }</a>
 
 													</div>
 													<div class="card-block">

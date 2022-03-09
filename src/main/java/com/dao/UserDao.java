@@ -70,4 +70,14 @@ public class UserDao {
 		
 		stmt.update("update users set password =? where email=?",session.getLoginPassword(),session.getLoginEmail());
 	}
+	
+	public List<UserBean> getUserByRoleId(int roleId) {
+		
+		List<UserBean> user = stmt.query("select u.*,r.rolename from users u,role r where u.roleid=r.roleid and r.roleid = ?", 
+				new BeanPropertyRowMapper<UserBean>(UserBean.class),new Object[] {roleId});
+		
+		return user;
+		
+	}
+	
 }

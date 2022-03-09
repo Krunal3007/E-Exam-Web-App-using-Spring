@@ -52,12 +52,22 @@ public class QuestionDao {
 	
 	public void updateQuestion(QuestionBean question) {
 		
-		stmt.update("update question set questionname=?,questionmarks=?,questionanswer=?,option1=?,option2=?,"
+		 stmt.update("update question set questionname=?,questionmarks=?,questionanswer=?,option1=?,option2=?,"
 				+ "option3=?,option4=?,isactive=? where questionid=?",question.getQuestionName(),
 				question.getQuestionMarks(),question.getQuestionAnswer(),question.getOption1(),question.getOption2(),
 				question.getOption3(),question.getOption4(),question.getIsActive(),question.getQuestionId());
+	
+		
 	}
 	
-
+	public List<QuestionBean> getQuestionByCourseId(int courseId) {
+		
+		List<QuestionBean> question = stmt.query("select q.*,c.coursename from question q,course c where "
+				+ "q.courseid = c.courseid and c.courseid = ?", 
+				new BeanPropertyRowMapper<QuestionBean>(QuestionBean.class),new Object[] {courseId});
+		
+		return question;
+		
+	}
 
 }

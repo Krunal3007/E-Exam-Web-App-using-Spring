@@ -80,4 +80,6 @@ public class AdminDao {
 				new BeanPropertyRowMapper<CourseBean>(CourseBean.class),new Object[] {courseId});
 	}
 	
+	
+	
 }

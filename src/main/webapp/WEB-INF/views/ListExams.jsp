@@ -86,6 +86,7 @@
 													<div class="card-header">
 														
 														<a href="newexam"><button class="btn btn-primary">Add Exam</button></a>	
+														<a class="btn btn-secondary text-white">Total Exams : ${count }</a>
 
 													</div>
 													<div class="card-block">
@@ -130,8 +131,8 @@
 </td>
 
 <td><a href="showallexamquestions?courseId=${e.courseId}"><button class="btn btn-primary btn-sm">All Questions</button></a>  
-	Total Questions : <button class="btn btn-primary btn-sm">${e.noOfQuestion }</button> 
-	Total Marks : <button class="btn btn-primary btn-sm">${e.totalMarks }</button>
+	Total Questions : <button class="btn btn-secondary btn-sm">${e.noOfQuestion }</button> 
+	Total Marks : <button class="btn btn-secondary btn-sm">${e.totalMarks }</button>
 </td>
 </tr>
 

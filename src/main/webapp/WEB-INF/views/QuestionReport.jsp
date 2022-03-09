@@ -8,7 +8,7 @@
 <head>
 <meta charset="ISO-8859-1">
 
-<title>List Questions</title>
+<title>Report Questions</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
 
 </head>
@@ -55,7 +55,7 @@
 									<div class="page-header-title">
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>List Questions</h5>
+											<h5>Report Questions</h5>
 										</div>
 									</div>
 								</div>
@@ -64,8 +64,8 @@
 										<ul class=" breadcrumb breadcrumb-title">
 											<li class="breadcrumb-item"><a href="admindashboard"><i
 													class="feather icon-home"></i></a></li>
-											<li class="breadcrumb-item"><a href="#!">Questions</a></li>
-											<li class="breadcrumb-item"><a href="#!">List</a></li>
+											<li class="breadcrumb-item"><a href="#!">Report</a></li>
+											<li class="breadcrumb-item"><a href="#!">Question</a></li>
 										</ul>
 									</div>
 								</div>
@@ -84,7 +84,9 @@
 													<div class="card-header" >
 														
 														<a href="newquestion"><button class="btn btn-primary">Add Question</button></a>
-														<a class="btn btn-secondary  text-white">Total Questions : ${count }</a>
+														<button type="button" class="btn btn-primary"
+																data-toggle="modal" data-target="#exampleModal">
+																Course</button>
 
 													</div>
 													<div class="card-block" >
@@ -168,11 +170,51 @@
 
 		<jsp:include page="AllJs.jsp"></jsp:include>
 
-		<script type="text/javascript">
+		<!-- <script type="text/javascript">
 			$(document).ready(function() {
 				$('#listRoles').DataTable();
 			});
-		</script>
+		</script> -->
+		
+		
+		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+			aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Report -
+							Question - Course</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body">
+						<form action="questionreport" method="get">
+							<div class="form-group row">
+								<label class="col-sm-2 col-form-label">Select Course </label>
+								<div class="col-sm-10">
+									<select name="courseId" class="form-control">
+
+										<c:forEach items="${courses}" var="c">
+											<option value="${c.courseId}">${c.courseName}</option>
+										</c:forEach>
+
+									</select>
+								</div>
+							</div>
+
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary"
+							data-dismiss="modal">Close</button>
+						<button type="submit" class="btn btn-primary">Generate</button>
+					</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		
 
 
 

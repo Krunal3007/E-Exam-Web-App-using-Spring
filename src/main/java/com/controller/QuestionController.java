@@ -76,6 +76,8 @@ public class QuestionController {
 		List<QuestionBean> questions = questionDao.getAllQuestions();
 		model.addAttribute("questions",questions);
 		
+		model.addAttribute("count",questions.size());
+		
 		return "ListQuestions";
 	}
 	

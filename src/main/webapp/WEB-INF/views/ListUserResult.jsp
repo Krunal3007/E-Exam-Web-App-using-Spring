@@ -89,8 +89,8 @@
 																		<table id="listRoles" class="table table-striped table-sm">
 																			<thead>
 																		<tr role="row">
-<th>USer Id</th>
-<th>User Name</th>
+<th>User Id</th>
+<th>First Name</th>
 <th>Exam Name</th>
 <th>Total Marks</th>
 <th>Obtain Marks</th>

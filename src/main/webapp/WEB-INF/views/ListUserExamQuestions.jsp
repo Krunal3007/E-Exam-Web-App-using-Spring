@@ -51,7 +51,9 @@
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
 											<h5>Subject : ${course.courseName }</h5>
+											
 										</div>
+										
 									</div>
 								</div>
 								<div class="col-lg-4">
@@ -77,7 +79,8 @@
 											<div class="col-sm-8">
 												<div class="card">
 													<div class="card-header">
-														
+														<h4 class="btn btn-secondary  ">Total Questions : ${count }</h4>
+														<h4 class="btn btn-secondary  ">Total Marks : ${totalMarks }</h4>		
 													</div>
 													<div class="card-block">
 														
@@ -86,10 +89,13 @@
 														
 														
 														
-														
+												
 
 <form action="saveuserexam" method="post">
 
+											
+											
+										
 
 <ol type="1">
 <c:forEach items="${questions}" var="q" varStatus="status">

@@ -71,6 +71,7 @@ public class ExamController {
 		ExamBean eb	= examQuestionDao.getExamByCourseId(exam.getCourseId());
 		
 		int n = exam.getAddInExam();
+		
 		System.out.println("n = "+n);
 		System.out.println(exam.getCourseId());
 
@@ -90,7 +91,7 @@ public class ExamController {
 		List<ExamBean> exams = examDao.getAllExams();
 
 		model.addAttribute("exams",exams);
-		
+		model.addAttribute("count",exams.size());
 		
 //this is for questions which are in userexam
 //		int courseId=0;

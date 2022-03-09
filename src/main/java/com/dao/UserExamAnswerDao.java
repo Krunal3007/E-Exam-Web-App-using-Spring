@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.bean.CourseBean;
 import com.bean.ExamBean;
 import com.bean.QuestionBean;
+import com.bean.UserBean;
 import com.bean.UserExamAnswerBean;
 import com.bean.UserExamBean;
 
@@ -77,5 +78,31 @@ public class UserExamAnswerDao {
 		return ueb;
 		
 	}
+	
+	public List<UserExamAnswerBean> getAllUser() {
+		
+		List<UserExamAnswerBean> ueb = stmt.query("select * from userexamanswer ",
+				new BeanPropertyRowMapper<UserExamAnswerBean>(UserExamAnswerBean.class));
+		
+		return ueb;
+		
+	}
+	public List<UserBean> getAllStudents(){
+		List<UserBean> user = stmt.query("select * from users where roleid=5", 
+				new BeanPropertyRowMapper<UserBean>(UserBean.class));
+	
+		return user;
+	}
+	
+	public List<UserExamAnswerBean> getUserByUserId(int userId) {
+		
+		List<UserExamAnswerBean> ueb = stmt.query("select * from userexamanswer where userid=?",
+				new BeanPropertyRowMapper<UserExamAnswerBean>(UserExamAnswerBean.class),new Object[] {userId});
+		
+		return ueb;
+		
+	}
+	
+	
 	
 }
