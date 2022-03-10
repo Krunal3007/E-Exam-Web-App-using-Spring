@@ -49,7 +49,7 @@
 									<div class="page-header-title">
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>Your Result</h5>
+											<h4>Your Result</h4>
 										</div>
 									</div>
 								</div>
@@ -77,7 +77,7 @@
 												<div class="card">
 													<div class="card-header">
 														
-														
+														<button  class="btn btn-primary" onclick="exportPdf()">Export</button>
 
 													</div>
 													<div class="card-block">
@@ -86,44 +86,42 @@
 																class="dataTables_wrapper dt-bootstrap4">
 																<div class="row">
 																	<div class="col-xs-12 col-sm-12">
-																		<table id="listRoles" class="table table-striped table-sm">
-																			<thead>
-																		<tr role="row">
-<th>User Id</th>
-<th>First Name</th>
-<th>Exam Name</th>
-<th>Total Marks</th>
-<th>Obtain Marks</th>
-<th>Status</th>
-<th>Action</th>
+																		<table id="listRoles" class="table table-striped ">
+																		
+																		<tr>
+																			<th class="h5">User Id</th>
+																			<td class="h5">${userExamAnswer.userId}</td>
+																			</tr>
+																			<tr>
+																			<th class="h5">First Name</th>
+																			<td class="h5">${userExamAnswer.firstName}</td>																			
+																			</tr>
+																			<tr >
+																			<th class="h5">Exam Name</th>
+																			<td class="h5">${userExamAnswer.examName}</td>
+																			</tr>
+																			<tr >
+																			<th class="h5">Total Marks</th>
+																			<td class="h5">${userExamAnswer.totalMarks}</td>
+																			</tr>
+																			<tr >
+																			<th class="h5">Obtain Marks</th>
+																			<td class="h5">${userExamAnswer.obtainMarks}</td>
+																			</tr>
+																			<tr >
+																			<th class="h5">Status</th>
+																			<td class="h5">
+																				<c:if test="${userExamAnswer.isPass == 1 }"><p class="text-success h5">Pass</p></c:if>
+																				<c:if test="${userExamAnswer.isPass == 0}"><p class="text-danger h5">Fail</p></c:if>
+																			</td>
+																			</tr>
+																			<tr >
+																			<th class="h4">Action</th>
+																			<td><a href="resultdetails?examId=${userExamAnswer.examId}&userId=${userExamAnswer.userId}"><button class="btn btn-primary">Details</button></a>
+	
+</td>
 																				</tr>
-																			</thead>
-																			<tbody>
-
-
-	
-<tr>
-
-<td>${userExamAnswer.userId}</td>
-<td>${userExamAnswer.firstName}</td>
-<td>${userExamAnswer.examName}</td>
-<td>${userExamAnswer.totalMarks}</td>
-<td>${userExamAnswer.obtainMarks}</td>
-<td>
-<c:if test="${userExamAnswer.isPass == 1 }">Pass</c:if>
-<c:if test="${userExamAnswer.isPass == 0}">Fail</c:if>
-</td>
-<td><a href="resultdetails?examId=${userExamAnswer.examId}&userId=${userExamAnswer.userId}"><button class="btn btn-primary btn-sm">Details</button></a>
-	
-</td>
-
-</tr>
-
-
-
-
-
-																			</tbody>
+													
 
 																		</table>
 																	</div>
@@ -160,7 +158,28 @@
 		<jsp:include page="AllJs.jsp"></jsp:include>
 
 		
-		
+		<script type="text/javascript">
+			function exportPdf() {
+				const element = document.getElementById('listRoles');
+				var opt = {
+					margin : 1,
+					filename : 'Report.pdf',
+					image : {
+						type : 'jpeg',
+						quality : 0.98
+					},
+					html2canvas : {
+						scale : 1
+					},
+					jsPDF : {
+						unit : 'in',
+						format : 'letter',
+						orientation : 'landscape'
+					}
+				};
+				html2pdf().set(opt).from(element).save();
+			}
+		</script>
 
 
 
