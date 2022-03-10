@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.bean.ExamBean;
 import com.bean.UserBean;
@@ -36,4 +38,37 @@ public class StudentController {
 		
 		return "StudentDashboard";
 	}
+	
+	@GetMapping("studentprofile")
+	public String studentProfile(@RequestParam("userId")int userId,Model model) {
+		
+		
+		UserBean student = studentDao.getStudentProfile(userId);
+		model.addAttribute("user",student);
+		
+		return "StudentProfile";
+	}
+	
+	@GetMapping("editstudentprofile")
+	public String editStudentProfile(@RequestParam("userId")int userId,Model model) {
+		
+		UserBean student = studentDao.getStudentProfile(userId);
+		model.addAttribute("user",student);
+		
+		return "EditStudentProfile";
+	}
+	
+	@PostMapping("updatestudentprofile")
+	public String updateStudentProfile(UserBean user,Model model) {
+		
+		studentDao.updateStudentProfile(user);
+		
+		UserBean student = studentDao.getStudentProfile(user.getUserId());
+		model.addAttribute("user",student);
+		
+		return "StudentProfile";
+	}
+	
+	
+	
 }

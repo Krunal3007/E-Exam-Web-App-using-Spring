@@ -48,8 +48,8 @@ public class UserDao {
 	
 	public void updateUser(UserBean user) {
 		
-		stmt.update("update users set firstname=?,email=?,password=?,phoneno=?,address=?,city=?,state=?,pincode=?,"
-				+ "isactive=? where userid=?",user.getFirstName(),user.getEmail(),user.getPassword(),user.getPhoneNo(),user.getAddress(),
+		stmt.update("update users set firstname=?,email=?,xender=?,phoneno=?,address=?,city=?,state=?,pincode=?,"
+				+ "isactive=? where userid=?",user.getFirstName(),user.getEmail(),user.getXender(),user.getPhoneNo(),user.getAddress(),
 				user.getCity(),user.getState(),user.getPincode(),user.getIsActive(),user.getUserId());
 		
 	}

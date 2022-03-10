@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import com.bean.ExamBean;
+import com.bean.UserBean;
 import com.bean.UserExamBean;
 
 @Repository
@@ -33,6 +34,22 @@ public class StudentDao {
 		
 		
 		return ueb;
+	}
+	
+	public UserBean getStudentProfile(int userId) {
+		
+		UserBean student = stmt.queryForObject("select * from users where userid =?", 
+				new BeanPropertyRowMapper<UserBean>(UserBean.class),new Object[] {userId});
+		
+		return student;
+	}
+	
+	public void updateStudentProfile(UserBean user) {
+		
+		stmt.update("update users set firstname=?,email=?,xender=?,phoneno=?,address=?,city=?,state=?,pincode=?"
+				+ "where userid=?",user.getFirstName(),user.getEmail(),user.getXender(),user.getPhoneNo(),user.getAddress(),
+				user.getCity(),user.getState(),user.getPincode(),user.getUserId());
+		
 	}
 	
 }
