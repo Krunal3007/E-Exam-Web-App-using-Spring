@@ -77,7 +77,7 @@
 																
 															</div>
 															<div class="col-auto">
-																<i class="fas fa-money-bill-alt text-c-red f-18"></i>
+																<i class="fas fa-users text-c-red f-18"></i>
 															</div>
 														</div>
 														<!-- <p>&nbsp;</p> -->
@@ -97,7 +97,8 @@
 																<h3 class="m-b-0 f-w-700 text-white">${teachers }</h3>
 															</div>
 															<div class="col-auto">
-																<i class="fas fa-database text-c-blue f-18"></i>
+																<i class="fas fa-user text-c-blue f-18"></i>
+																
 															</div>
 														</div>
 														<!-- <p class="m-b-0 text-white">
@@ -116,7 +117,7 @@
 																<h3 class="m-b-0 f-w-700 text-white">${roles }</h3>
 															</div>
 															<div class="col-auto">
-																<i class="fas fa-dollar-sign text-c-green f-18"></i>
+																<i class="fas fa-tags text-c-green f-18"></i>
 															</div>
 														</div>
 														<!-- <p class="m-b-0 text-white">
@@ -135,7 +136,7 @@
 																<h3 class="m-b-0 f-w-700 text-white">${courses }</h3>
 															</div>
 															<div class="col-auto">
-																<i class="fas fa-tags text-c-yellow f-18"></i>
+																<i class="fas fa-file text-c-yellow f-18"></i>
 															</div>
 														</div>
 														<!-- <p class="m-b-0 text-white">
@@ -155,7 +156,7 @@
 																<h3 class="m-b-0 f-w-700 text-white">${questions }</h3>
 															</div>
 															<div class="col-auto">
-																<i class="fas fa-tags text-c-yellow f-18"></i>
+																<i class="fas fa-book text-c-yellow f-18"></i>
 															</div>
 														</div>
 														<!-- <p class="m-b-0 text-white">
@@ -176,7 +177,7 @@
 																<h3 class="m-b-0 f-w-700 text-white">${exams }</h3>
 															</div>
 															<div class="col-auto">
-																<i class="fas fa-dollar-sign text-c-green f-18"></i>
+																<i class="fas fa-bars text-c-green f-18"></i>
 															</div>
 														</div>
 														<!-- <p class="m-b-0 text-white">

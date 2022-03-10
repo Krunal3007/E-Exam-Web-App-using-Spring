@@ -112,8 +112,8 @@
 <td>${u.totalMarks}</td>
 <td>${u.obtainMarks}</td>
 <td>
-<c:if test="${u.isPass == 1 }">Pass</c:if>
-<c:if test="${u.isPass == 0}">Fail</c:if>
+<c:if test="${u.isPass == 1 }"><p class="text-success">Pass</p></c:if>
+<c:if test="${u.isPass == 0}"><p class="text-danger">Fail</p></c:if>
 </td>
 <td><a href="resultdetails?examId=${u.examId}&userId=${u.userId}"><button class="btn btn-primary btn-sm">Details</button></a>
 	

@@ -108,26 +108,30 @@
 	
 		<br>
 		
-		<input type="radio"  name="answer[${status.index }]"  value="${q.option1 } " >
-		${q.option1 }
+		<input type="radio" id="${q.questionId }${q.option1 }"  name="answer[${status.index }]"  value="${q.option1 } " >
+		<label for="${q.questionId }${q.option1 }">${q.option1 }</label>
+		
 		<br>
 			
 		
 	
-		<input type="radio"  name="answer[${status.index }]" value="${q.option2 }">
-		${q.option2 }
+		<input type="radio" id="${q.questionId }${q.option2 }" name="answer[${status.index }]" value="${q.option2 }">
+		<label for="${q.questionId }${q.option2 }">${q.option2 }</label>
+		
 		<br>
 			
 		
 			
-		<input type="radio" name="answer[${status.index }]" value="${q.option3 }">
-		${q.option3 }
+		<input type="radio" id="${q.questionId }${q.option3 }" name="answer[${status.index }]" value="${q.option3 }">
+		<label for="${q.questionId }${q.option3 }">${q.option3 }</label>
+		
 		<br>
 			
 		
 		
-		<input type="radio"  name="answer[${status.index }]" value="${q.option4 }">
-		${q.option4 }
+		<input type="radio" id="${q.questionId }${q.option4 }" name="answer[${status.index }]" value="${q.option4 }">
+		<label for="${q.questionId }${q.option4 }">${q.option4 }</label>
+		
 		
 		
 		<br><br>

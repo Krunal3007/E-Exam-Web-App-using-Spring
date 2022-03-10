@@ -76,7 +76,7 @@
 																<h3 class="m-b-0 f-w-700 text-white">${remainingExams }</h3>
 															</div>
 															<div class="col-auto">
-																<i class="fas fa-money-bill-alt text-c-red f-18"></i>
+																<i class="fas fa-bars text-c-red f-18"></i>
 															</div>
 														</div>
 														<p>&nbsp;</p>
