@@ -190,6 +190,15 @@ solid
 	text-decoration: none;
 }
 </style>
+<style>
+.hov:hover {
+	color: black;
+	
+}
+.hov2:hover {
+	color: pink;
+}
+</style>
 <meta http-equiv="content-type" content="text/html;charset=UTF-8">
 <!-- /Added by HTTrack -->
  

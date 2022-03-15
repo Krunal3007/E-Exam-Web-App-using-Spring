@@ -84,7 +84,7 @@
 													<div class="card-header" >
 														
 														<a href="newquestion"><button class="btn btn-primary">Add Question</button></a>
-														<a class="btn btn-secondary  text-white">Total Questions : ${count }</a>
+														<a class="btn btn-secondary  text-white float-right">Total Questions : ${count }</a>
 
 													</div>
 													<div class="card-block" >
@@ -96,11 +96,11 @@
 																		<table id="listRoles" class="table table-striped " >
 																			<thead>
 																				<tr role="row" >
-																					<th>Question Id</th>
+<th>Id</th>
 <th>Question Name</th>
-<th>Question Marks</th>
-<th>Question Answer</th>
-<th>Course Name</th>
+<th>Marks</th>
+<th>Answer</th>
+<th>Course</th>
 <th>Option 1</th>
 <th>Option 2</th>
 <th>Option 3</th>

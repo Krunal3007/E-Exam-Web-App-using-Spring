@@ -72,7 +72,7 @@
 														<div class="row align-items-center m-b-30">
 															<div class="col">
 															
-																<h6 class="m-b-5 text-white">Total Students</h6>
+																<h6 class="m-b-5 text-white"><a href="listusers" class="h5 hov">Total Students</a></h6>
 																<h3 class="m-b-0 f-w-700 text-white">${students }</h3>
 																
 															</div>
@@ -93,7 +93,7 @@
 													<div class="card-body">
 														<div class="row align-items-center m-b-30">
 															<div class="col">
-																<h6 class="m-b-5 text-white">Total Teachers</h6>
+																<h6 class="m-b-5 text-white"><a href="listusers" class="h5 hov">Total Teachers</a></h6>
 																<h3 class="m-b-0 f-w-700 text-white">${teachers }</h3>
 															</div>
 															<div class="col-auto">
@@ -113,7 +113,7 @@
 													<div class="card-body">
 														<div class="row align-items-center m-b-30">
 															<div class="col">
-																<h6 class="m-b-5 text-white">Total Roles</h6>
+																<h6 class="m-b-5 text-white"><a href="listroles" class="h5 hov">Total Roles</a></h6>
 																<h3 class="m-b-0 f-w-700 text-white">${roles }</h3>
 															</div>
 															<div class="col-auto">
@@ -132,7 +132,7 @@
 													<div class="card-body">
 														<div class="row align-items-center m-b-30">
 															<div class="col">
-																<h6 class="m-b-5 text-white">Total Courses</h6>
+																<h6 class="m-b-5 text-white"><a href="listcourses" class="h5 hov">Total Courses</a></h6>
 																<h3 class="m-b-0 f-w-700 text-white">${courses }</h3>
 															</div>
 															<div class="col-auto">
@@ -152,7 +152,7 @@
 													<div class="card-body">
 														<div class="row align-items-center m-b-30">
 															<div class="col">
-																<h6 class="m-b-5 text-white">Total Questions</h6>
+																<h6 class="m-b-5 text-white"><a href="listquestions" class="h5 hov">Total Questions</a></h6>
 																<h3 class="m-b-0 f-w-700 text-white">${questions }</h3>
 															</div>
 															<div class="col-auto">
@@ -173,7 +173,7 @@
 													<div class="card-body">
 														<div class="row align-items-center m-b-30">
 															<div class="col">
-																<h6 class="m-b-5 text-white">Total Exams</h6>
+																<h6 class="m-b-5 text-white"><a href="listexams" class="h5 hov2">Total Exams</a></h6>
 																<h3 class="m-b-0 f-w-700 text-white">${exams }</h3>
 															</div>
 															<div class="col-auto">
@@ -192,7 +192,74 @@
 											
 												
 												
+<div class="col-xl-10 col-md-12 ">
+<div class="card comp-card">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col">
+<h6 class="m-b-25">Total Attempted Exams</h6>
+<h3 class="f-w-700 text-c-blue">${allGivenExams }</h3>
+<!-- <p class="m-b-0">May 23 - June 01 (2017)</p> -->
+</div>
+<div class="col-auto">
+<i class="fas fa-eye bg-c-blue"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
 
+<div class="col-xl-5 col-md-6">
+<div class="card comp-card">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col">
+<h6 class="m-b-25">Total Cleared Exams</h6>
+<h3 class="f-w-700 text-c-green">${allPassed }</h3>
+<!-- <p class="m-b-0">May 23 - June 01 (2017)</p> -->
+</div>
+<div class="col-auto">
+<i class="fas fa-bullseye bg-c-green"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-xl-5 col-md-6">
+<div class="card comp-card">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col">
+<h6 class="m-b-25">Total Failed Exams</h6>
+<h3 class="f-w-700 text-c-red">${allFailed }</h3>
+<!-- <p class="m-b-0">May 23 - June 01 (2017)</p> -->
+</div>
+<div class="col-auto">
+<i class="fas fa-bullseye bg-c-red"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+<div class="col-xl-10 col-md-6">
+<div class="card comp-card">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col">
+<h6 class="m-b-25">Pass Ratio</h6>
+<h3 class="f-w-700 text-c-yellow">${ratio }%</h3>
+<!-- <p class="m-b-0">May 23 - June 01 (2017)</p> -->
+</div>
+<div class="col-auto">
+ <i class="fas fa-hand-paper bg-c-yellow"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
 											
 
 

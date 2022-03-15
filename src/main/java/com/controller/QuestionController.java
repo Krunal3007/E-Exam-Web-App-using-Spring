@@ -141,7 +141,7 @@ public class QuestionController {
 		
 		
 		ExamBean exam = examQuestionDao.getExamByCourseId(question.getCourseId());
-		System.out.println(exam.getCourseId());
+		
 		if(exam != null) {
 		exam.setTotalMarks(totalMarks);
 		exam.setNoOfQuestion(count);

@@ -43,6 +43,8 @@ public class CourseController {
 		List<CourseBean> courses = courseDao.getAllCourses();
 		model.addAttribute("courses",courses);
 		
+		model.addAttribute("count",courses.size());
+		
 		return "ListCourses";
 	}
 	

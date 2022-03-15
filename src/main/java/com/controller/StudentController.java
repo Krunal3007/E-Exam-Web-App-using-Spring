@@ -35,6 +35,16 @@ public class StudentController {
 		List<UserExamBean> userGivenExams = studentDao.getUserGivenExams(dbuser.getUserId());
 		model.addAttribute("userGivenExams",userGivenExams.size());
 		
+		List<UserExamBean> pass = studentDao.getUserPassedExams(dbuser.getUserId());
+		model.addAttribute("passed",pass.size());
+		
+		List<UserExamBean> fail = studentDao.getUserFailedExams(dbuser.getUserId());
+		model.addAttribute("failed",fail.size());
+		
+		int a=userGivenExams.size();
+		int b = pass.size();
+		String ratio = String.format("%.2f", ((float)b/a)*100);
+		model.addAttribute("ratio",ratio);
 		
 		return "StudentDashboard";
 	}

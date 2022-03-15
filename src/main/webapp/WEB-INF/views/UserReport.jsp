@@ -90,17 +90,17 @@
 																		<table id="listRoles" class="table table-striped">
 																			<thead>
 																				<tr role="row">
-																					<th>User Id</th>
-<th>First Name</th>
+<th>Id</th>
+<th>Name</th>
 <th>Email</th>
 <th>Password</th>
-<th>Xender</th>
+<th>Gender</th>
 <th>Phone No</th>
 <th>Address</th>
 <th>City</th>
 <th>State</th>
 <th>Pincode</th>
-<th>RoleName</th>
+<th>Role</th>
 <th>Action</th>
 																				</tr>
 																			</thead>
@@ -167,11 +167,11 @@
 
 		<jsp:include page="AllJs.jsp"></jsp:include>
 
-		<!-- <script type="text/javascript">
+		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#listRoles').DataTable();
 			});
-		</script>-->
+		</script>
 
 
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"

@@ -26,17 +26,6 @@
 
 </head>
 <body>
-<!-- <h2>SignUp</h2>
-<form action="signupsaveuser" method="post">
-	First Name:<input type="text" name="signupFirstName"> <br><br>
-	Email :<input type="email" name="signupEmail"> <br><br>
-	Password :<input type="password" name="signupPassword"> <br><br>
-	
-	<input type="submit" value="Submit">
-
-</form>
-
-<a href="login">Login</a> -->
 
 
 
@@ -45,16 +34,14 @@
 
 
 
-
-
-<section class="h-100 bg-info">
+<section class="h-100 " style="background-color: rgb(8, 82, 82)">
 		<div class="container h-100">
 			<div class="row justify-content-sm-center h-100">
-				<div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10" style="margin-top:60px;">
+				<div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10" style="margin-top:10px;">    <!-- 10 -->
 					<div class="text-center my-5">
 						<h1 class="bg-white text-info card shadow-lg">E-Exam</h1>
 					</div>
-					<div class="card shadow-lg">
+					<div class="card shadow-lg" style="background-color: #CCE5FF">
 						<div class="card-body p-5">
 							<h1 class="fs-4 card-title fw-bold mb-4 text-dark">Sign Up</h1>
 							<form method="post" action="signupsaveuser" class="needs-validation"  autocomplete="on">
@@ -97,6 +84,7 @@
 							<div class="text-center text-dark">
 								Already have an account? <a href="login" class="text-primary">Login</a>
 							</div>
+							
 						</div>
 					</div>
 					

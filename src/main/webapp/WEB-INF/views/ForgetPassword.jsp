@@ -21,41 +21,25 @@
 
 </head>
 <body>
-<%-- <h2>ForgetPassword</h2>
-
-<form action="forgetpassword" method="post">
-	Email : <input type="email" name="emailForPass" > <br><br>
-	
-	<input type="submit" value="Submit">
-</form>
-
-${error} --%>
 
 
 
 
 
-
-
-
-
-
-
-
-<section class="h-100 bg-info">
+<section class="h-100 " style="background-color: rgb(8, 82, 82)">
 		<div class="container h-100">
 			<div class="row justify-content-sm-center h-100">
-				<div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10" style="margin-top:160px;">
+				<div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10" style="margin-top:100px;">  <!-- 110 -->
 					<div class="text-center my-5">
 						<h1 class="bg-white text-info card shadow-lg">E-Exam</h1>
 					</div>
-					<div class="card shadow-lg">
+					<div class="card shadow-lg pt-2 mt-2" style="background-color: #CCE5FF">
 						<div class="card-body p-5">
 							<h1 class="fs-4 card-title fw-bold mb-4 text-dark">Reset Password</h1>
 							<form method="post" action="forgetpassword" class="needs-validation"  autocomplete="on">
 								
 
-								<div class="mb-3">
+								<div class="mb-3 pt-5">
 									<label class="mb-2 text-muted" for="email">Enter Your Email</label>
 									<input id="email" type="email" class="form-control" name="emailForPass" value="" required>
 									<div class="invalid-feedback">
@@ -66,8 +50,8 @@ ${error} --%>
 								
 								
 
-								<div class="align-items-center d-flex">
-									<button type="submit" class="btn btn-primary ms-auto">
+								<div class="align-items-center pt-4 text-center">
+									<button type="submit" class="btn btn-primary ms-auto ">
 										Submit	
 									</button>
 								</div>
@@ -78,6 +62,7 @@ ${error} --%>
 							<div class="text-center text-dark">
 								Back To <a href="login" class="text-primary">Login</a>
 							</div>
+							&nbsp;&nbsp;
 						</div>
 						
 					</div>
@@ -86,7 +71,7 @@ ${error} --%>
 			</div>
 		</div>
 	</section>
-
+	
 	<script src="js/login.js"></script>
 
 

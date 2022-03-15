@@ -74,6 +74,20 @@ public class AdminController {
 		model.addAttribute("exams", exams.size());
 		
 		
+		List<UserExamAnswerBean> ueb = adminDao.getAllUsersResult();
+		model.addAttribute("allGivenExams",ueb.size());
+		
+		List<UserExamAnswerBean> pass = adminDao.getAllPassedStudents();
+		model.addAttribute("allPassed",pass.size());
+		
+		List<UserExamAnswerBean> fail = adminDao.getAllFailedStudents();
+		model.addAttribute("allFailed",fail.size());
+		
+		int a=ueb.size();
+		int b = pass.size();
+		String ratio = String.format("%.2f", ((float)b/a)*100);
+		model.addAttribute("ratio",ratio);
+		
 		return "AdminDashboard";
 	}
 	
@@ -89,10 +103,11 @@ public class AdminController {
 			uName.add(user.getFirstName());
 		}
 		List<Integer> cId = new ArrayList<>();
-		
+		List<String> desc = new ArrayList<>();
 		for(int i=0;i<ueb.size();i++) {
 			ExamBean exam = examDao.getExamById(ueb.get(i).getExamId());
 			cId.add(exam.getCourseId());
+			desc.add(exam.getInstructions());
 		}
 		List<String> cName = new ArrayList<>();
 		for(int i=0;i<ueb.size();i++) {
@@ -103,8 +118,16 @@ public class AdminController {
 		for(int i=0;i<ueb.size();i++) {
 			ueb.get(i).setFirstName(uName.get(i));
 			ueb.get(i).setExamName(cName.get(i));
+			ueb.get(i).setDescription(desc.get(i));
 		}
-		
+
+		float percentage=0;
+		for(int i=0;i<ueb.size();i++) {
+			percentage = ((float)ueb.get(i).getObtainMarks()/ueb.get(i).getTotalMarks())*100;
+			String percent = String.format("%.2f",percentage );
+			
+			ueb.get(i).setPercentage(Float.parseFloat(percent));
+		}
 		
 		
 		model.addAttribute("ueb",ueb);
@@ -154,11 +177,22 @@ public class AdminController {
 		if(userId == 0) {
 			List<UserExamAnswerBean> ueb = userExamAnswerDao.getAllUser();
 			for(int i=0;i<ueb.size();i++) {
+				ExamBean exam = examDao.getExamById(ueb.get(i).getExamId());
+				ueb.get(i).setDescription(exam.getInstructions());
+			}
+			for(int i=0;i<ueb.size();i++) {
 				UserBean ub = adminDao.getUserbyUserId(ueb.get(i).getUserId());
 				ueb.get(i).setFirstName(ub.getFirstName());
 				ExamBean eb = userExamAnswerDao.getCourseIdByExamId(ueb.get(i).getExamId());
 				CourseBean cb = adminDao.getCourseById(eb.getCourseId());
 				ueb.get(i).setExamName(cb.getCourseName());
+			}
+			float percentage=0;
+			for(int i=0;i<ueb.size();i++) {
+				percentage = ((float)ueb.get(i).getObtainMarks()/ueb.get(i).getTotalMarks())*100;
+				String percent = String.format("%.2f",percentage );
+				
+				ueb.get(i).setPercentage(Float.parseFloat(percent));
 			}
 			
 			model.addAttribute("ueb",ueb);
@@ -166,11 +200,22 @@ public class AdminController {
 		else {
 			List<UserExamAnswerBean> ueb = userExamAnswerDao.getUserByUserId(userId);
 			for(int i=0;i<ueb.size();i++) {
+				ExamBean exam = examDao.getExamById(ueb.get(i).getExamId());
+				ueb.get(i).setDescription(exam.getInstructions());
+			}
+			for(int i=0;i<ueb.size();i++) {
 				UserBean ub = adminDao.getUserbyUserId(ueb.get(i).getUserId());
 				ueb.get(i).setFirstName(ub.getFirstName());
 				ExamBean eb = userExamAnswerDao.getCourseIdByExamId(ueb.get(i).getExamId());
 				CourseBean cb = adminDao.getCourseById(eb.getCourseId());
 				ueb.get(i).setExamName(cb.getCourseName());
+			}
+			float percentage=0;
+			for(int i=0;i<ueb.size();i++) {
+				percentage = ((float)ueb.get(i).getObtainMarks()/ueb.get(i).getTotalMarks())*100;
+				String percent = String.format("%.2f",percentage );
+				
+				ueb.get(i).setPercentage(Float.parseFloat(percent));
 			}
 			
 			
@@ -182,6 +227,7 @@ public class AdminController {
 		
 		return "StudentReport";
 	}
+	
 	
 	
 	

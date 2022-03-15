@@ -99,7 +99,7 @@
 
 
 <td>
-	<a href="viewuserresult?examId=${e}&examName=${courseName[status.index]}"><button class="btn btn-primary btn-sm">View Result</button></a>
+	<a href="viewuserresult?examId=${e}&examName=${courseName[status.index]}"><button class="btn btn-primary ">View Result</button></a>
 </td>
 
 </tr>

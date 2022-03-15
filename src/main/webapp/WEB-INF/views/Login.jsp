@@ -19,20 +19,6 @@
 
 </head>
 <body>
-<%-- <h2>Login</h2>
-
-	<form action="login"  method="post">
-	
-	Email :<input type="email" name="loginEmail"> <br><br>
-	Password :<input type="password" name="loginPassword"> <br><br>
-	<input type="submit" value="Login">
-	</form>
-
-	${error} ${msg}
-	<br>
-	
-	<a href="signup">New User?</a>
-	<a href="forgetpassword">ForgetPassword</a> --%>
 
 
 
@@ -41,24 +27,19 @@
 
 
 
-
-
-
-
-
-
-<section class="h-100 bg-info">
+<section class="h-100 " style="background-color: rgb(8, 82, 82)">
 		<div class="container h-100 ">
 			<div class="row justify-content-sm-center h-100 ">
 			
-				<div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm-10 " style="margin-top:160px;">
+				<div class="col-xxl-5 col-xl-6 col-lg-6 col-md-8 col-sm10 " style="margin-top:67px">    <!-- 67 -->
 				
 					<div class="text-center my-5 ">
 						<h1 class="bg-white text-info card shadow-lg">E-Exam</h1>
 					</div>
-					<div class="card shadow-lg" >
-						<div class="card-body p-5">
+					<div class="card shadow-lg" style="background-color: #CCE5FF">
+						<div class="card-body p-5" >
 							<h1 class="fs-4 card-title fw-bold mb-4 text-dark">Sign In</h1>
+							
 							<form method="post" action="login" class="needs-validation"  autocomplete="on">
 								<div class="mb-3">
 									<label class="mb-2 text-muted" for="email">Email</label>
@@ -80,7 +61,7 @@
 								    	Password is required
 							    	</div>
 								</div>
-
+								&nbsp;&nbsp;
 								<div class="d-flex align-items-center">
 									<div class="form-check">
 										<input type="checkbox" name="remember" id="remember" class="form-check-input">
@@ -96,7 +77,9 @@
 						<div class="card-footer py-3 border-0 ">
 							<div class="text-center text-dark">
 								Don't have an account? <a href="signup" class="text-primary">Create One</a>
+								
 							</div>
+							&nbsp;&nbsp;
 						</div>
 					</div>
 					

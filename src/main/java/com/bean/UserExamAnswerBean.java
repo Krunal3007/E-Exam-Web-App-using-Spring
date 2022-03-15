@@ -12,6 +12,22 @@ public class UserExamAnswerBean {
 	private String firstName;
 	private String examName;
 	
+	private float percentage;
+	
+	private String description;
+	
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public float getPercentage() {
+		return percentage;
+	}
+	public void setPercentage(float percentage) {
+		this.percentage = percentage;
+	}
 	public String getFirstName() {
 		return firstName;
 	}

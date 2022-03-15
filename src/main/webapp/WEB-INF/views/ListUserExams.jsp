@@ -107,7 +107,7 @@
 <td>${e.instructions }</td>
 
 <td>
-	<a href="showuserexamquestions?courseId=${e.courseId}"><button class="btn btn-primary btn-sm">Start Exam</button></a>
+	<a href="showuserexamquestions?courseId=${e.courseId}"><button class="btn btn-primary ">Start Exam</button></a>
 </td>
 
 </tr>

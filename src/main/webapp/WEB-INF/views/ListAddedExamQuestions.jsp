@@ -85,11 +85,11 @@
 																			<thead>
 																				<tr role="row">
 																					
-<th>Question Id</th>
+<th>Id</th>
 <th>Question Name</th>
-<th>Question Marks</th>
-<th>Question Answer</th>
-<th>Course Name</th>
+<th>Marks</th>
+<th>Answer</th>
+<th>Course</th>
 <th>Option 1</th>
 <th>Option 2</th>
 <th>Option 3</th>

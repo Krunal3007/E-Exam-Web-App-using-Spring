@@ -80,6 +80,23 @@ public class AdminDao {
 				new BeanPropertyRowMapper<CourseBean>(CourseBean.class),new Object[] {courseId});
 	}
 	
+	public List<UserExamAnswerBean> getAllPassedStudents() {
+		
+		List<UserExamAnswerBean> ueb = stmt.query("select * from userexamanswer where ispass =1",
+				new BeanPropertyRowMapper<UserExamAnswerBean>(UserExamAnswerBean.class));
+		
+		return ueb;
+		
+	}
+	
+	public List<UserExamAnswerBean> getAllFailedStudents() {
+		
+		List<UserExamAnswerBean> ueb = stmt.query("select * from userexamanswer where ispass =0",
+				new BeanPropertyRowMapper<UserExamAnswerBean>(UserExamAnswerBean.class));
+		
+		return ueb;
+		
+	}
 	
 	
 }

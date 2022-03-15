@@ -68,18 +68,39 @@
 
 											
 											<div class="col-xl-5 col-md-6 " >
-												<div class="card prod-p-card card-red">
+												<div class="card prod-p-card card-blue">
 													<div class="card-body">
 														<div class="row align-items-center m-b-30">
 															<div class="col">
-																<h6 class="m-b-5 text-white"><a href="listuserexams" class="h4">Remaining Exams</a></h6>
+																<h6 class="m-b-5 text-white"><a href="listuserexams" class="h4 hov" >Total Active Exams</a></h6>
 																<h3 class="m-b-0 f-w-700 text-white">${remainingExams }</h3>
 															</div>
 															<div class="col-auto">
 																<i class="fas fa-bars text-c-red f-18"></i>
 															</div>
 														</div>
-														<p>&nbsp;</p>
+														<!-- <p>&nbsp;</p> -->
+														<!--  <p class="m-b-0 text-white">
+															<span class="label label-danger m-r-10">+11%</span>From
+															Previous Month
+														</p>  -->
+													</div>
+												</div>
+											</div>
+											
+											<div class="col-xl-5 col-md-6 " >
+												<div class="card prod-p-card card-green">
+													<div class="card-body">
+														<div class="row align-items-center m-b-30">
+															<div class="col">
+																<h6 class="m-b-5 text-white"><a href="usergivenexams" class="h4 hov">Total Attempted Exams</a></h6>
+																<h3 class="m-b-0 f-w-700 text-white">${userGivenExams }</h3>
+															</div>
+															<div class="col-auto">
+																<i class="fas fa-eye text-c-red f-18"></i>
+															</div>
+														</div>
+														<!-- <p>&nbsp;</p> -->
 														<!--  <p class="m-b-0 text-white">
 															<span class="label label-danger m-r-10">+11%</span>From
 															Previous Month
@@ -93,7 +114,57 @@
 											
 
 
-											
+<div class="col-xl-8 col-md-12 mt-5">
+<div class="card comp-card">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col">
+<h6 class="m-b-25">Total Cleared Exams</h6>
+<h3 class="f-w-700 text-c-green">${passed }</h3>
+<!-- <p class="m-b-0">May 23 - June 01 (2017)</p> -->
+</div>
+<div class="col-auto">
+<i class="fas fa-bullseye bg-c-green"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-xl-8 col-md-12 ">
+<div class="card comp-card">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col">
+<h6 class="m-b-25">Total Failed Exams</h6>
+<h3 class="f-w-700 text-c-red">${failed }</h3>
+<!-- <p class="m-b-0">May 23 - June 01 (2017)</p> -->
+</div>
+<div class="col-auto">
+<i class="fas fa-bullseye bg-c-red"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="col-xl-8 col-md-12 ">
+<div class="card comp-card">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col">
+<h6 class="m-b-25">Pass Ratio</h6>
+<h3 class="f-w-700 text-c-yellow">${ratio } %</h3>
+<!-- <p class="m-b-0">May 23 - June 01 (2017)</p> -->
+</div>
+<div class="col-auto">
+<i class="fas fa-hand-paper bg-c-yellow"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+								
 
 
 

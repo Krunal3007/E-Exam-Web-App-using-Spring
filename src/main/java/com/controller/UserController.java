@@ -58,6 +58,8 @@ public class UserController {
 		List<UserBean> users =  userDao.getAllUsers();
 		model.addAttribute("users",users);
 		
+		model.addAttribute("count",users.size());
+		
 		return "ListUsers";
 		
 	}

@@ -81,7 +81,7 @@
 																		<table id="listRoles" class="table table-striped">
 																			<thead>
 																				<tr role="row">
-<th>Question Id</th>
+<th>Id</th>
 <th>Question Name</th>
 <th>Option 1</th>
 <th>Option 2</th>

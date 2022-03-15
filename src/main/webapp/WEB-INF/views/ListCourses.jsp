@@ -69,6 +69,7 @@
 													<div class="card-header">
 														
 														<a href="newcourse"><button class="btn btn-primary">Add Course</button></a>
+														<a class="btn btn-secondary text-white float-right">Total Courses : ${count }</a>
 
 													</div>
 													<div class="card-block">

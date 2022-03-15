@@ -86,7 +86,7 @@
 													<div class="card-header">
 														
 														<a href="newexam"><button class="btn btn-primary">Add Exam</button></a>	
-														<a class="btn btn-secondary text-white">Total Exams : ${count }</a>
+														<a class="btn btn-secondary text-white float-right">Total Exams : ${count }</a>
 
 													</div>
 													<div class="card-block">
@@ -99,8 +99,8 @@
 																			<thead>
 																				<tr role="row">
 																					
-<th>Exam Id</th>
-<th>Course Name</th>
+<th>Id</th>
+<th>Course</th>
 <th>Duration</th>
 <th>Instructions</th>
 

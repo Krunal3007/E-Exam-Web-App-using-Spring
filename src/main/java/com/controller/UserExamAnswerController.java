@@ -20,6 +20,7 @@ import com.bean.QuestionBean;
 import com.bean.UserBean;
 import com.bean.UserExamAnswerBean;
 import com.bean.UserExamBean;
+import com.dao.ExamDao;
 import com.dao.UserExamAnswerDao;
 
 @Controller
@@ -27,6 +28,9 @@ public class UserExamAnswerController {
 	
 	@Autowired
 	UserExamAnswerDao userExamAnswerDao;
+	
+	@Autowired
+	ExamDao examDao;
 
 	@GetMapping("usergivenexams")
 	public String userGivenExams(HttpSession session,Model model) {
@@ -89,6 +93,17 @@ public class UserExamAnswerController {
 		UserExamAnswerBean userExamAnswer = userExamAnswerDao.viewResult(dbuser.getUserId(),examId);
 		userExamAnswer.setExamName(examName);
 		userExamAnswer.setFirstName(dbuser.getFirstName());
+		
+			ExamBean exam = examDao.getExamById(examId);
+			userExamAnswer.setDescription(exam.getInstructions());
+		
+		
+		
+			float percentage = ((float)userExamAnswer.getObtainMarks()/userExamAnswer.getTotalMarks())*100;
+			String percent = String.format("%.2f",percentage );
+			
+			userExamAnswer.setPercentage(Float.parseFloat(percent));
+		
 		
 		model.addAttribute("userExamAnswer",userExamAnswer);
 		

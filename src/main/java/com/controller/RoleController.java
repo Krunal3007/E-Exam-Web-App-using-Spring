@@ -40,6 +40,9 @@ public class RoleController {
 		
 		List<RoleBean> roles = roleDao.getAllRoles();
 		model.addAttribute("roles",roles);
+		
+		model.addAttribute("count",roles.size());
+		
 		return "ListRoles";
 	}
 	

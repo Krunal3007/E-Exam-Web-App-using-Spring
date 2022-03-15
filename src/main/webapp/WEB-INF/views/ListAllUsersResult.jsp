@@ -84,9 +84,11 @@
 																				<tr role="row">
 <th>UserId</th>
 <th>User Name</th>
-<th>Exam Name</th>
+<th>Exam</th>
+<th>Type</th>
 <th>Total Marks</th>
 <th>Obtain Marks</th>
+<th>Percentage</th>
 <th>Status</th>
 																				</tr>
 																			</thead>
@@ -99,8 +101,10 @@
 <td>${u.userId }</td>
 <td>${u.firstName }</td>
 <td>${u.examName }</td>
+<td>${u.description }</td>
 <td>${u.totalMarks }</td>
 <td>${u.obtainMarks }</td>
+<td>${u.percentage }%</td>
 <td>
 <c:if test="${u.isPass == 1 }"><p class="text-success">Pass</p></c:if>
 <c:if test="${u.isPass == 0}"><p class="text-danger">Fail</p></c:if>

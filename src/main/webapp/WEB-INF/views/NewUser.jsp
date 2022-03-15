@@ -113,7 +113,7 @@
 
 
 														<div class="form-group row">
-																<label class="col-sm-2 col-form-label">Select Xender</label>
+																<label class="col-sm-2 col-form-label">Select Gender</label>
 																<div class="col-sm-10">
 																	<select name="xender" class="form-control">
 	
@@ -187,21 +187,13 @@
 															</div>
 
 														
-
-															 
-
+			
+																<input type="submit" class="btn btn-primary" value="Add User"/>
+																<input type="reset" class="btn btn-danger" value="Clear"/>
+			
 														
-
-
-														
-															
-															
-												
-															
-
 																			
-														<input type="submit" class="btn btn-primary" value="Add User"/>
-														<input type="reset" class="btn btn-danger" value="Clear"/>
+														
 
 
 														</form>

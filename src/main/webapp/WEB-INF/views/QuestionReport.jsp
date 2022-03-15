@@ -98,11 +98,11 @@
 																		<table id="listRoles" class="table table-striped " >
 																			<thead>
 																				<tr role="row" >
-																					<th>Question Id</th>
+<th>Id</th>
 <th>Question Name</th>
-<th>Question Marks</th>
-<th>Question Answer</th>
-<th>Course Name</th>
+<th>Marks</th>
+<th>Answer</th>
+<th>Course</th>
 <th>Option 1</th>
 <th>Option 2</th>
 <th>Option 3</th>
@@ -170,11 +170,11 @@
 
 		<jsp:include page="AllJs.jsp"></jsp:include>
 
-		<!-- <script type="text/javascript">
+		<script type="text/javascript">
 			$(document).ready(function() {
 				$('#listRoles').DataTable();
 			});
-		</script> -->
+		</script>
 		
 		
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"

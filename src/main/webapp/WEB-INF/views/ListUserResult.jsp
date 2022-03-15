@@ -78,6 +78,7 @@
 													<div class="card-header">
 														
 														<button  class="btn btn-primary" onclick="exportPdf()">Export</button>
+														<td><a href="resultdetails?examId=${userExamAnswer.examId}&userId=${userExamAnswer.userId}"><button class="btn btn-primary float-right">Details</button></a></td>
 
 													</div>
 													<div class="card-block">
@@ -101,12 +102,20 @@
 																			<td class="h5">${userExamAnswer.examName}</td>
 																			</tr>
 																			<tr >
+																			<th class="h5">Type</th>
+																			<td class="h5">${userExamAnswer.description}</td>
+																			</tr>
+																			<tr >
 																			<th class="h5">Total Marks</th>
 																			<td class="h5">${userExamAnswer.totalMarks}</td>
 																			</tr>
 																			<tr >
 																			<th class="h5">Obtain Marks</th>
 																			<td class="h5">${userExamAnswer.obtainMarks}</td>
+																			</tr>
+																			<tr >
+																			<th class="h5">Percentage</th>
+																			<td class="h5">${userExamAnswer.percentage}%</td>
 																			</tr>
 																			<tr >
 																			<th class="h5">Status</th>
@@ -116,11 +125,7 @@
 																			</td>
 																			</tr>
 																			<tr >
-																			<th class="h4">Action</th>
-																			<td><a href="resultdetails?examId=${userExamAnswer.examId}&userId=${userExamAnswer.userId}"><button class="btn btn-primary">Details</button></a>
-	
-</td>
-																				</tr>
+																			
 													
 
 																		</table>

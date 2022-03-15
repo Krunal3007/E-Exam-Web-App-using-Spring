@@ -32,7 +32,7 @@
 
 
 
-<div id="pcoded" class="pcoded iscollapsed">
+<div id="pcoded" class="pcoded iscollapsed ">
 		<div class="pcoded-overlay-box"></div>
 		<div class="pcoded-container navbar-wrapper">
 			<jsp:include page="StudentHeader.jsp"></jsp:include>
@@ -71,12 +71,12 @@
 
 						<div class="pcoded-inner-content">
 
-							<div class="main-body">
+							<div class="main-body ">
 								<div class="page-wrapper">
 
-									<div class="page-body">
+									<div class="page-body ">
 										<div class="row">
-											<div class="col-sm-8">
+											<div class="col-sm-8 mx-auto">
 												<div class="card">
 													<div class="card-header">
 														<h4 class="btn btn-secondary  ">Total Questions : ${count }</h4>
@@ -91,7 +91,7 @@
 														
 												
 
-<form action="saveuserexam" method="post">
+<form action="saveuserexam" method="post" >
 
 											
 											
@@ -100,15 +100,19 @@
 <ol type="1">
 <c:forEach items="${questions}" var="q" varStatus="status">
 	
-	Marks : ${q.questionMarks }
 	
+	<div class="align-items-center pt-4 text-right">
+			
+							Marks : ${q.questionMarks }	
+			
+	</div>
 <li>
 	${q.questionName } 
 	<input type="hidden" name="userExamQuestionId" value="${q.questionId }" >
 	
 		<br>
 		
-		<input type="radio" id="${q.questionId }${q.option1 }"  name="answer[${status.index }]"  value="${q.option1 } " >
+		<input type="radio" id="${q.questionId }${q.option1 }"  name="answer[${status.index }]"  value="${q.option1 } " required="required">
 		<label for="${q.questionId }${q.option1 }">${q.option1 }</label>
 		
 		<br>
@@ -143,10 +147,14 @@
 </ol>
 
 
- 
+ 			<div class="align-items-center pt-4 text-center">
+			
+					<input type="submit" value="Submit" class="btn btn-primary ">
+			
+			</div>
 
 
-<input type="submit" value="Submit" class="btn btn-primary">
+
 
 </form>
 

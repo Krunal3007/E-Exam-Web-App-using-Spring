@@ -59,6 +59,7 @@
 													<div class="card-header">
 														
 														<a href="newrole"><button class="btn btn-primary">Add Role</button></a>
+														<a class="btn btn-secondary text-white float-right">Total Roles : ${count }</a>
 
 													</div>
 													<div class="card-block">

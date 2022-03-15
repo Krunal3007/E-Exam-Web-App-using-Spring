@@ -93,11 +93,13 @@
 																		<tr role="row">
 <th>User Id</th>
 <th>First Name</th>
-<th>Exam Name</th>
+<th>Exam</th>
+<th>Type</th>
 <th>Total Marks</th>
 <th>Obtain Marks</th>
+<th>Percentage</th>
 <th>Status</th>
-<th>Action</th>
+
 																				</tr>
 																			</thead>
 																			<tbody>
@@ -109,15 +111,13 @@
 <td>${u.userId}</td>
 <td>${u.firstName}</td>
 <td>${u.examName}</td>
+<td>${u.description}</td>
 <td>${u.totalMarks}</td>
 <td>${u.obtainMarks}</td>
+<td>${u.percentage }%</td>
 <td>
 <c:if test="${u.isPass == 1 }"><p class="text-success">Pass</p></c:if>
 <c:if test="${u.isPass == 0}"><p class="text-danger">Fail</p></c:if>
-</td>
-<td><a href="resultdetails?examId=${u.examId}&userId=${u.userId}"><button class="btn btn-primary btn-sm">Details</button></a>
-	
-</td>
 
 </tr>
 
@@ -161,7 +161,11 @@
 
 		<jsp:include page="AllJs.jsp"></jsp:include>
 
-		
+		<script type="text/javascript">
+			$(document).ready(function() {
+				$('#listRoles').DataTable();
+			});
+		</script>
 		
 		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -183,7 +187,7 @@
 									<select name="userId" class="form-control">
 
 										<c:forEach items="${students}" var="s">
-											<option value="${s.userId}">${s.firstName}</option>
+											<option value="${s.userId}">${s.userId} - ${s.firstName}</option>
 										</c:forEach>
 
 									</select>

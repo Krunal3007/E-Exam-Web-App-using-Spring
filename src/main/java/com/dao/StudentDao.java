@@ -29,7 +29,25 @@ public class StudentDao {
 	
 	public List<UserExamBean> getUserGivenExams(int userId) {
 		
-		List<UserExamBean> ueb = stmt.query("select userid,examid from userexam where userid=?", 
+		List<UserExamBean> ueb = stmt.query("select * from userexamanswer where userid=?", 
+				new BeanPropertyRowMapper<UserExamBean>(UserExamBean.class),new Object[] {userId});
+		
+		
+		return ueb;
+	}
+	
+	public List<UserExamBean> getUserPassedExams(int userId) {
+		
+		List<UserExamBean> ueb = stmt.query("select * from userexamanswer where userid=? and ispass=1", 
+				new BeanPropertyRowMapper<UserExamBean>(UserExamBean.class),new Object[] {userId});
+		
+		
+		return ueb;
+	}
+	
+	public List<UserExamBean> getUserFailedExams(int userId) {
+		
+		List<UserExamBean> ueb = stmt.query("select * from userexamanswer where userid=? and ispass=0", 
 				new BeanPropertyRowMapper<UserExamBean>(UserExamBean.class),new Object[] {userId});
 		
 		
