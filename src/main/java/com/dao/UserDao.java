@@ -80,4 +80,11 @@ public class UserDao {
 		
 	}
 	
+	public void addSignupUser(SessionBean sb) {
+		
+		stmt.update("insert into users(firstname,email,password,phoneno,address,city,state,pincode,roleid,isactive,xender) "
+				+ "values(?,?,?,?,?,?,?,?,?,?,?)",sb.getSignupFirstName(),sb.getSignupEmail(),sb.getSignupPassword(),sb.getSignupPhoneNo(),
+				sb.getSignupAddress(),sb.getSignupCity(),sb.getSignupState(),sb.getSignupPincode(),5,1,sb.getSignupGender());
+	}
+	
 }

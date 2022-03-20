@@ -39,6 +39,22 @@ public class SessionController {
 	}
 	
 	
+	@PostMapping("/signupsaveuser")
+	public String signupSaveUser(SessionBean sb,Model model) {
+		
+		String plainPassword = sb.getSignupPassword();
+		String encryptedPassword = bCryptPasswordEncoder.encode(plainPassword);
+		System.out.println(encryptedPassword);
+		sb.setSignupPassword(encryptedPassword);
+		
+		userDao.addSignupUser(sb);
+		
+		model.addAttribute("msg","Registration completed successfully");
+		
+		return "Login";
+	}
+	
+	
 	@GetMapping("/")
 	public String login2() {
 		return "redirect:/login";
