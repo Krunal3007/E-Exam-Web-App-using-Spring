@@ -16,7 +16,7 @@ import com.bean.SessionBean;
 import com.bean.UserBean;
 import com.dao.UserDao;
 
-
+import com.service.EmailService;
 
 
 @Controller
@@ -30,6 +30,8 @@ public class SessionController {
 	@Autowired
 	BCryptPasswordEncoder bCryptPasswordEncoder;
 	
+	@Autowired
+	EmailService emailService;
 	
 	@RequestMapping(value = "signup", method = RequestMethod.GET)
 	public String signup() {
@@ -136,6 +138,8 @@ public class SessionController {
 			
 			model.addAttribute("msg","Otp is generated and sent to your email");
 			System.out.println(otp);
+			
+			emailService.sendEmailForForgetPassword(dbuser.getEmail(), otp+"");
 			
 			return "NewPassword";
 		}

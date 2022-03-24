@@ -96,7 +96,7 @@
 <th>Id</th>
 <th>Name</th>
 <th>Email</th>
-<th>Password</th>
+<!-- <th>Password</th> -->
 <th>Gender</th>
 <th>Phone No</th>
 <th>Address</th>
@@ -116,7 +116,7 @@
  <td>${u.userId}</td>
  <td>${u.firstName }</td>
  <td>${u.email }</td>
- <td>${u.password }</td>
+ <%-- <td>${u.password }</td> --%>
  <td>${u.xender }</td>
  <td>${u.phoneNo }</td>
  <td>${u.address }</td>

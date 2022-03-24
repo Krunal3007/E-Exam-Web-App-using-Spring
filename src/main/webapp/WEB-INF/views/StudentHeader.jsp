@@ -21,7 +21,7 @@
 								<div class="dropdown-primary dropdown">
 									<div class="dropdown-toggle" data-toggle="dropdown"
 										aria-expanded="false">
-										<img src="jpg/avatar-4.jpg" class="img-radius"
+										<img src="jpg/user1.png" class="img-radius"
 											alt="User-Profile-Image"> <span>${user.firstName}</span> <i
 											class="feather icon-chevron-down"></i>
 									</div>
