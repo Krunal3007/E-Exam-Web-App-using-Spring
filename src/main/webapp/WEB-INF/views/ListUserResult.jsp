@@ -90,7 +90,7 @@
 																		<table id="listRoles" class="table table-striped ">
 																		
 																		<tr>
-																			<th class="h5">User Id</th>
+																			<th class="h5">Student Id</th>
 																			<td class="h5">${userExamAnswer.userId}</td>
 																			</tr>
 																			<tr>

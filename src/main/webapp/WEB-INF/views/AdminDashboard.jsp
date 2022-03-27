@@ -1,3 +1,6 @@
+<%@ page import="com.bean.UserExamAnswerBean" %>
+<%@ page import="java.util.List" %>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -260,19 +263,23 @@
 </div>
 </div>
 </div>
+
+
+<!-- chart -->
+<div class="col-xl-8 col-md-6">
+<div class="card comp-card">
+<div class="card-body">
+<div class="row align-items-center">
+<div class="col">
+<canvas id="myChart" width="700" height="400"></canvas>
+
+</div>
+
+</div>
+</div>
+</div>
+</div>
 											
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -293,6 +300,73 @@
 
 
 	<jsp:include page="AllJs.jsp"></jsp:include>
+	
+	
+	<script type="text/javascript" src="js/chart.js"></script>
+
+	<%
+		
+		List<UserExamAnswerBean> results = (List<UserExamAnswerBean>)request.getAttribute("allResults");
+	
+	%>
+ <script>
+ 	
+    const ctx = document.getElementById('myChart').getContext('2d');
+    const myChart = new Chart(ctx, {
+    	
+        type: 'line',
+        data: {
+            
+        	labels: [ 
+        		
+    			
+    		 	<% for(UserExamAnswerBean s:results){%>
+				'<%=s.getIsPass()%>',
+			
+				<%}%> 
+        	],
+            
+            datasets: [{
+                label: 'Student-Scores',
+                data: [
+                	<% for(UserExamAnswerBean s:results){%>
+    				<%=s.getPercentage()%>,
+    				
+    			<%}%> 
+                	
+                	
+                ],
+                backgroundColor: [
+                    'rgba(255, 99, 132, 0.2)',
+                   	/* 'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)',
+                    'rgba(255, 159, 64, 0.2)' */
+                ],
+                borderColor: [
+                    'rgba(255, 99, 132, 1)',
+                    /* 'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)',
+                    'rgba(255, 159, 64, 1)' */
+                ],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    
+                }
+            }
+        }
+    });
+   
+    </script>
+	
 
 	<!-- Mirrored from colorlib.com/polygon/admindek/default/dashboard-crm.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 12 Dec 2019 16:08:32 GMT -->
 </body>

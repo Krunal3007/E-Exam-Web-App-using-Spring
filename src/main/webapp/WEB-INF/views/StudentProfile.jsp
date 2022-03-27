@@ -98,10 +98,10 @@
 																					<th>Email</th>
 																					<td>${user.email }</td>
 																					</tr>
-																					<tr role="row">
+																					<%-- <tr role="row">
 																					<th>Password</th>
 																					<td>${user.password }</td>
-																					</tr>
+																					</tr> --%>
 																					<tr role="row">
 																					<th>Xender</th>
 																					<td>${user.xender }</td>

@@ -77,8 +77,21 @@ public class AdminController {
 		List<UserExamAnswerBean> ueb = adminDao.getAllUsersResult();
 		model.addAttribute("allGivenExams",ueb.size());
 		
+		float percentage=0;
+		for(int i=0;i<ueb.size();i++) {
+			percentage = ((float)ueb.get(i).getObtainMarks()/ueb.get(i).getTotalMarks())*100;
+			String percent = String.format("%.2f",percentage );
+			
+			ueb.get(i).setPercentage(Float.parseFloat(percent));
+		}
+		
+		model.addAttribute("allResults",ueb);
+		
+		
+		
 		List<UserExamAnswerBean> pass = adminDao.getAllPassedStudents();
 		model.addAttribute("allPassed",pass.size());
+		
 		
 		List<UserExamAnswerBean> fail = adminDao.getAllFailedStudents();
 		model.addAttribute("allFailed",fail.size());
