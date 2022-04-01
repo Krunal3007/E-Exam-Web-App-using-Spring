@@ -36,6 +36,19 @@ public class UserExamAnswerDao {
 	
 		return exam;
 	}
+	public ExamBean getExamIdByCourseId(int courseId) {
+		ExamBean exam=null;
+		try {
+		 exam = stmt.queryForObject("select * from exam where courseid =?", 
+				new BeanPropertyRowMapper<ExamBean>(ExamBean.class),new Object[] {courseId});
+		}
+		catch(Exception e) {}
+		return exam;
+	}
+	public List<UserExamAnswerBean> getResultByCourseId(int examId) {
+		return stmt.query("select * from userexamanswer where examid = ?", 
+				new BeanPropertyRowMapper<UserExamAnswerBean>(UserExamAnswerBean.class),new Object[] {examId});
+	}
 	
 	public CourseBean getCourseNameByCourseId(int courseId) {
 		

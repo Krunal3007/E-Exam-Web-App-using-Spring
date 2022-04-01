@@ -1,28 +1,17 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1" isELIgnored="false"%>
-    
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>      
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Report Users</title>
+<title>Report Course Result</title>
 <jsp:include page="AllCss.jsp"></jsp:include>
+
 </head>
 <body>
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -47,17 +36,17 @@
 									<div class="page-header-title">
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>Report Users</h5>
+											<h5>Report Course Result</h5>
 										</div>
 									</div>
 								</div>
 								<div class="col-lg-4">
 									<div class="page-header-breadcrumb">
 										<ul class=" breadcrumb breadcrumb-title">
-											<li class="breadcrumb-item"><a href="admindashboard"><i
+											<li class="breadcrumb-item"><a href="studentdashboard"><i
 													class="feather icon-home"></i></a></li>
 											<li class="breadcrumb-item"><a href="#!">Report</a></li>
-											<li class="breadcrumb-item"><a href="#!">User</a></li>
+											<li class="breadcrumb-item"><a href="#!">Course Result</a></li>
 										</ul>
 									</div>
 								</div>
@@ -75,10 +64,9 @@
 												<div class="card">
 													<div class="card-header">
 														
-														<a href="newuser"><button class="btn btn-primary">Add User</button></a>
 														<button type="button" class="btn btn-primary"
 																data-toggle="modal" data-target="#exampleModal">
-																Role</button>
+																Course</button>
 
 													</div>
 													<div class="card-block">
@@ -90,45 +78,39 @@
 																		<table id="listRoles" class="table table-striped">
 																			<thead>
 																				<tr role="row">
-<th>Id</th>
-<th>Name</th>
-<th>Email</th>
-<!-- <th>Password</th> -->
-<th>Gender</th>
-<th>Phone No</th>
-<th>Address</th>
-<th>City</th>
-<th>State</th>
-<th>Pincode</th>
-<th>Role</th>
-<th>Action</th>
+<th>UserId</th>
+<th>User Name</th>
+<th>Exam</th>
+<th>Type</th>
+<th>Date</th>
+<th>Total Marks</th>
+<th>Obtain Marks</th>
+<th>Percentage</th>
+<th>Status</th>
 																				</tr>
 																			</thead>
 																			<tbody>
 
 
-																			<c:forEach items="${users}" var="u">
- 
- <tr>
- <td>${u.userId}</td>
- <td>${u.firstName }</td>
- <td>${u.email }</td>
- <%-- <td>${u.password }</td> --%>
- <td>${u.xender }</td>
- <td>${u.phoneNo }</td>
- <td>${u.address }</td>
- <td>${u.city }</td>
- <td>${u.state }</td>
- <td>${u.pincode }</td>
- <td>${u.roleName }</td>
- <td><a href="deleteuser/${u.userId}"><button class="btn btn-primary btn-sm">Delete</button></a> 
- 	<a href="edituser?userId=${u.userId }"><button class="btn btn-primary btn-sm">Edit</button></a>
- </td>
- 
- </tr>
- 
- </c:forEach>
+<c:forEach items="${allResults }" var="u">
 
+<tr>
+<td>${u.userId }</td>
+<td>${u.firstName }</td>
+<td>${u.examName }</td>
+<td>${u.description }</td>
+<td>${u.examDate }</td>
+<td>${u.totalMarks }</td>
+<td>${u.obtainMarks }</td>
+<td>${u.percentage }%</td>
+<td>
+<c:if test="${u.isPass == 1 }"><p class="text-success">Pass</p></c:if>
+<c:if test="${u.isPass == 0}"><p class="text-danger">Fail</p></c:if>
+
+</td>
+</tr>
+
+</c:forEach>
 
 
 																			</tbody>
@@ -174,27 +156,27 @@
 		</script>
 
 
-		<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 			aria-labelledby="exampleModalLabel" aria-hidden="true">
 			<div class="modal-dialog" role="document">
 				<div class="modal-content">
 					<div class="modal-header">
 						<h5 class="modal-title" id="exampleModalLabel">Report -
-							User - Role</h5>
+							Course - Result</h5>
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">&times;</span>
 						</button>
 					</div>
 					<div class="modal-body">
-						<form action="userreport" method="get">
+						<form action="courseresultreport" method="get">
 							<div class="form-group row">
-								<label class="col-sm-2 col-form-label">Select Role </label>
+								<label class="col-sm-2 col-form-label">Select Course </label>
 								<div class="col-sm-10">
-									<select name="roleId" class="form-control">
+									<select name="courseId" class="form-control">
 
-										<c:forEach items="${roles}" var="r">
-											<option value="${r.roleId}">${r.roleName}</option>
+										<c:forEach items="${courses}" var="c">
+											<option value="${c.courseId}">${c.courseName}</option>
 										</c:forEach>
 
 									</select>
@@ -211,9 +193,6 @@
 				</div>
 			</div>
 		</div>
-
-
-
 
 
 

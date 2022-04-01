@@ -85,50 +85,81 @@
 														<div class="dt-responsive table-responsive">
 															<div id="order-table_wrapper"
 																class="dataTables_wrapper dt-bootstrap4">
-																<div class="row">
+																<div class="row" id="listRoles">
+																
+																<div class="d-flex flex-column">
+																<div class="h5 mt-1 ml-4"><span class="mr-5">Student Id</span> : <span class="ml-5">${userExamAnswer.userId}</span></div>
+																<div class="h5 mt-1 ml-4"><span class="mr-2">Student Name</span> : <span class="ml-5">${userExamAnswer.firstName}</span></div>
+																<div class="h5 mt-1 ml-4"><span class="mr-4">Exam Name</span>&nbsp; : <span class="ml-5">${userExamAnswer.examName}</span></div>
+																<div class="h5 mt-1 ml-4"><span class="mr-4">Exam Type</span>&nbsp;&nbsp;&nbsp; : <span class="ml-5">${userExamAnswer.description}</span></div>
+																<div class="h5 mb-5 mt-1 ml-4"><span class="mr-4">Exam Date</span>&nbsp;&nbsp;&nbsp; : <span class="ml-5">${userExamAnswer.examDate}</span></div>
+																
+																</div>
 																	<div class="col-xs-12 col-sm-12">
-																		<table id="listRoles" class="table table-striped ">
+																		<table  class="table table-striped table-sm">
 																		
-																		<tr>
-																			<th class="h5">Student Id</th>
-																			<td class="h5">${userExamAnswer.userId}</td>
-																			</tr>
+																		<thead>
+																				<tr role="row">
+																					<th>Total Marks</th>
+																					<th>Obtain Marks</th>
+
+																					<th>Percentage</th>
+																					<th>Status</th>
+																				</tr>
+																			</thead>
+																			
+																			<tbody>
 																			<tr>
-																			<th class="h5">First Name</th>
-																			<td class="h5">${userExamAnswer.firstName}</td>																			
-																			</tr>
-																			<tr >
-																			<th class="h5">Exam Name</th>
-																			<td class="h5">${userExamAnswer.examName}</td>
-																			</tr>
-																			<tr >
-																			<th class="h5">Type</th>
-																			<td class="h5">${userExamAnswer.description}</td>
-																			</tr>
-																			<tr >
-																			<th class="h5">Exam Date</th>
-																			<td class="h5">${userExamAnswer.examDate}</td>
-																			</tr>
-																			<tr >
-																			<th class="h5">Total Marks</th>
-																			<td class="h5">${userExamAnswer.totalMarks}</td>
-																			</tr>
-																			<tr >
-																			<th class="h5">Obtain Marks</th>
-																			<td class="h5">${userExamAnswer.obtainMarks}</td>
-																			</tr>
-																			<tr >
-																			<th class="h5">Percentage</th>
-																			<td class="h5">${userExamAnswer.percentage}%</td>
-																			</tr>
-																			<tr >
-																			<th class="h5">Status</th>
-																			<td class="h5">
+																			<td>${userExamAnswer.totalMarks}</td>
+																			<td>${userExamAnswer.obtainMarks}</td>
+																			<td>${userExamAnswer.percentage}%</td>
+																			<td>
 																				<c:if test="${userExamAnswer.isPass == 1 }"><p class="text-success h5">Pass</p></c:if>
 																				<c:if test="${userExamAnswer.isPass == 0}"><p class="text-danger h5">Fail</p></c:if>
 																			</td>
 																			</tr>
+																			</tbody>
+																		
+																			<%-- <tr>
+																			<th class="h6">Student Id</th>
+																			<td class="h6">${userExamAnswer.userId}</td>
+																			</tr>
+																			<tr>
+																			<th class="h6">First Name</th>
+																			<td class="h6">${userExamAnswer.firstName}</td>																			
+																			</tr>
 																			<tr >
+																			<th class="h6">Exam Name</th>
+																			<td class="h6">${userExamAnswer.examName}</td>
+																			</tr>
+																			<tr >
+																			<th class="h6">Type</th>
+																			<td class="h6">${userExamAnswer.description}</td>
+																			</tr>
+																			<tr >
+																			<th class="h6">Exam Date</th>
+																			<td class="h6">${userExamAnswer.examDate}</td>
+																			</tr>
+																			<tr >
+																			<th class="h6">Total Marks</th>
+																			<td class="h6">${userExamAnswer.totalMarks}</td>
+																			</tr>
+																			<tr >
+																			<th class="h6">Obtain Marks</th>
+																			<td class="h6">${userExamAnswer.obtainMarks}</td>
+																			</tr>
+																			<tr >
+																			<th class="h6">Percentage</th>
+																			<td class="h6">${userExamAnswer.percentage}%</td>
+																			</tr>
+																			<tr >
+																			<th class="h6">Status</th>
+																			<td class="h6">
+																				<c:if test="${userExamAnswer.isPass == 1 }"><p class="text-success h5">Pass</p></c:if>
+																				<c:if test="${userExamAnswer.isPass == 0}"><p class="text-danger h5">Fail</p></c:if>
+																			</td>
+																			</tr>
+																			 --%>
 																			
 													
 
@@ -178,7 +209,7 @@
 						quality : 0.98
 					},
 					html2canvas : {
-						scale : 1
+						scale : 2
 					},
 					jsPDF : {
 						unit : 'in',

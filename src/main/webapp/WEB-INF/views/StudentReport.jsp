@@ -49,7 +49,7 @@
 									<div class="page-header-title">
 										<i class="feather icon-inbox bg-c-blue"></i>
 										<div class="d-inline">
-											<h5>Your Result</h5>
+											<h5>Report Student Result</h5>
 										</div>
 									</div>
 								</div>
@@ -59,7 +59,7 @@
 											<li class="breadcrumb-item"><a href="studentdashboard"><i
 													class="feather icon-home"></i></a></li>
 											<li class="breadcrumb-item"><a href="#!">Report</a></li>
-											<li class="breadcrumb-item"><a href="#!">Student</a></li>
+											<li class="breadcrumb-item"><a href="#!">Student Result</a></li>
 										</ul>
 									</div>
 								</div>

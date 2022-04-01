@@ -166,6 +166,67 @@ public class AdminController {
 		return "UserReport";
 	}
 	
+	@GetMapping("courseresultreport")
+	public String getResultesOfAllCourses(@RequestParam("courseId")int courseId,Model model) {
+		
+		if(courseId == 0) {
+			List<UserExamAnswerBean> ueb = userExamAnswerDao.getAllUser();
+			
+			for(int i=0;i<ueb.size();i++) {
+				ExamBean exam = examDao.getExamById(ueb.get(i).getExamId());
+				ueb.get(i).setDescription(exam.getInstructions());
+			}
+			for(int i=0;i<ueb.size();i++) {
+				UserBean ub = adminDao.getUserbyUserId(ueb.get(i).getUserId());
+				ueb.get(i).setFirstName(ub.getFirstName());
+				ExamBean eb = userExamAnswerDao.getCourseIdByExamId(ueb.get(i).getExamId());
+				CourseBean cb = adminDao.getCourseById(eb.getCourseId());
+				ueb.get(i).setExamName(cb.getCourseName());
+			}
+			float percentage=0;
+			for(int i=0;i<ueb.size();i++) {
+				percentage = ((float)ueb.get(i).getObtainMarks()/ueb.get(i).getTotalMarks())*100;
+				String percent = String.format("%.2f",percentage );
+				
+				ueb.get(i).setPercentage(Float.parseFloat(percent));
+			}
+			
+		    model.addAttribute("allResults",ueb);
+		}
+		else {
+			ExamBean eb = userExamAnswerDao.getExamIdByCourseId(courseId);
+			if(eb != null) {
+				System.out.println("<<<<<<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>>>");
+			List<UserExamAnswerBean> ueb = userExamAnswerDao.getResultByCourseId(eb.getExamId());
+			
+			for(int i=0;i<ueb.size();i++) {
+				ExamBean exam = examDao.getExamById(ueb.get(i).getExamId());
+				ueb.get(i).setDescription(exam.getInstructions());
+			}
+			for(int i=0;i<ueb.size();i++) {
+				UserBean ub = adminDao.getUserbyUserId(ueb.get(i).getUserId());
+				ueb.get(i).setFirstName(ub.getFirstName());
+				ExamBean ebb = userExamAnswerDao.getCourseIdByExamId(ueb.get(i).getExamId());
+				CourseBean cb = adminDao.getCourseById(ebb.getCourseId());
+				ueb.get(i).setExamName(cb.getCourseName());
+			}
+			float percentage=0;
+			for(int i=0;i<ueb.size();i++) {
+				percentage = ((float)ueb.get(i).getObtainMarks()/ueb.get(i).getTotalMarks())*100;
+				String percent = String.format("%.2f",percentage );
+				
+				ueb.get(i).setPercentage(Float.parseFloat(percent));
+			}
+			
+			model.addAttribute("allResults",ueb);
+			}
+		}
+		List<CourseBean> courses = courseDao.getAllCourses();
+		model.addAttribute("courses",courses);
+		
+		return "CourseResultReport";
+	}
+	
 	@GetMapping("questionreport")
 	public String getAllQuestions(@RequestParam("courseId")int courseId,Model model) {
 		

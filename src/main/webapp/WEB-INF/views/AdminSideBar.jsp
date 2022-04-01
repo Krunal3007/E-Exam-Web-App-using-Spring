@@ -86,10 +86,13 @@
 								class="waves-effect waves-dark"> <span class="pcoded-mtext">User</span>
 							</a></li>
 							<li class=" "><a href="studentreport?userId=0"
-								class="waves-effect waves-dark"> <span class="pcoded-mtext">Student</span>
+								class="waves-effect waves-dark"> <span class="pcoded-mtext">Student Result</span>
 							</a></li>
 							<li class=" "><a href="questionreport?courseId=0"
 								class="waves-effect waves-dark"> <span class="pcoded-mtext">Question</span>
+							</a></li>
+							<li class=" "><a href="courseresultreport?courseId=0"
+								class="waves-effect waves-dark"> <span class="pcoded-mtext">Course Result</span>
 							</a></li> 
 						</ul></li> 
 					
