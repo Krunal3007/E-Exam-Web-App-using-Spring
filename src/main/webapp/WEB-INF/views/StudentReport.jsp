@@ -95,6 +95,7 @@
 <th>First Name</th>
 <th>Exam</th>
 <th>Type</th>
+<th>Date</th>
 <th>Total Marks</th>
 <th>Obtain Marks</th>
 <th>Percentage</th>
@@ -112,6 +113,7 @@
 <td>${u.firstName}</td>
 <td>${u.examName}</td>
 <td>${u.description}</td>
+<td>${u.examDate}</td>
 <td>${u.totalMarks}</td>
 <td>${u.obtainMarks}</td>
 <td>${u.percentage }%</td>

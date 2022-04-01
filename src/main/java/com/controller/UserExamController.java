@@ -1,6 +1,10 @@
 package com.controller;
 
+import java.util.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -75,8 +79,6 @@ public class UserExamController {
 	
 	@PostMapping("/saveuserexam")
 	public String saveUserExam(UserExamBean ueb,HttpSession hts,Model model) {
-		
-
 		
 		ArrayList<String> tmp = new ArrayList<String>();
 		for(int i=0;i<ueb.getAnswer().size();i++) {
@@ -159,7 +161,12 @@ public class UserExamController {
 			System.out.println("Pass");
 		}
 		
-		userExamAnswerDao.addUserExamAnswer(dbuser.getUserId(),exId,totalMarks,obtainMarks,isPass);
+		Date date = Calendar.getInstance().getTime();
+		DateFormat date_format = new SimpleDateFormat("dd-MMM-yyyy");
+		String date_string = date_format.format(date);
+//		System.out.println("Date to String : "+ date_string);
+		
+		userExamAnswerDao.addUserExamAnswer(dbuser.getUserId(),exId,totalMarks,obtainMarks,isPass,date_string);
 		
 		
 //		model.addAttribute("msg","Exam Submitted Successfully");

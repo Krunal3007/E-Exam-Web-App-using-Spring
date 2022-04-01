@@ -133,7 +133,7 @@
 															
 												
 															
-
+														
 																			
 														<input type="submit" class="btn btn-primary" value="Add Exam"/>
 														<input type="reset" class="btn btn-danger" value="Clear"/>
@@ -141,8 +141,9 @@
 
 														</form>
 
-
+														
 													</div>
+													<h5 class="text-danger text-center">${error}</h5>
 												</div>
 											</div>
 										</div>

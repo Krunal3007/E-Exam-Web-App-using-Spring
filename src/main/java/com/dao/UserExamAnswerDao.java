@@ -63,10 +63,10 @@ public class UserExamAnswerDao {
 		
 	}
 	
-	public void addUserExamAnswer(int userId,int examId,int totalMarks,int obtainMarks,int isPass) {
+	public void addUserExamAnswer(int userId,int examId,int totalMarks,int obtainMarks,int isPass,String examDate) {
 		
-		stmt.update("insert into userexamanswer(userid,examid,totalmarks,obtainmarks,ispass) values(?,?,?,?,?)",
-				userId,examId,totalMarks,obtainMarks,isPass);
+		stmt.update("insert into userexamanswer(userid,examid,totalmarks,obtainmarks,ispass,examdate) values(?,?,?,?,?,?)",
+				userId,examId,totalMarks,obtainMarks,isPass,examDate);
 		
 	}
 	

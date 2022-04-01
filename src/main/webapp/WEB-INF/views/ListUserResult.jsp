@@ -106,6 +106,10 @@
 																			<td class="h5">${userExamAnswer.description}</td>
 																			</tr>
 																			<tr >
+																			<th class="h5">Exam Date</th>
+																			<td class="h5">${userExamAnswer.examDate}</td>
+																			</tr>
+																			<tr >
 																			<th class="h5">Total Marks</th>
 																			<td class="h5">${userExamAnswer.totalMarks}</td>
 																			</tr>

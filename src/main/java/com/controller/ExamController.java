@@ -40,9 +40,11 @@ public class ExamController {
 	
 	
 	@GetMapping("/newexam")
-	public String newExam(Model model) {
+	public String newExam(Model model,HttpSession hts) {
+				
+
+		List<CourseBean> courses = examDao.getRemainingExams();
 		
-		List<CourseBean> courses = courseDao.getAllCourses(); 
 		
 		model.addAttribute("courses",courses);
 		
@@ -50,10 +52,20 @@ public class ExamController {
 	}
 	
 	@PostMapping("/saveexam")
-	public String saveExam(ExamBean exam,HttpSession hts) {
+	public String saveExam(ExamBean exam,HttpSession hts,Model model) {
 		
 		
 		List<QuestionBean> questions = examDao.getExamQuestions(exam.getCourseId());
+		CourseBean course = courseDao.getCourseById(exam.getCourseId());
+
+		if(questions.size() < exam.getAddInExam()) {
+			model.addAttribute("error","You only have "+questions.size()+" questions of "+course.getCourseName()+" in database");
+			
+			List<CourseBean> courses = examDao.getRemainingExams(); 
+			model.addAttribute("courses",courses);
+			
+			return "NewExam";
+		}
 		int totalMarks=0;
 		int count=0;
 		for(int i=0;i<questions.size();i++) {

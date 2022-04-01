@@ -16,6 +16,14 @@ public class UserExamAnswerBean {
 	
 	private String description;
 	
+	private String examDate;
+	
+	public String getExamDate() {
+		return examDate;
+	}
+	public void setExamDate(String examDate) {
+		this.examDate = examDate;
+	}
 	public String getDescription() {
 		return description;
 	}

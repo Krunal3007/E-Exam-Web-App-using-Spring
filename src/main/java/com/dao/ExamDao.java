@@ -7,6 +7,7 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
+import com.bean.CourseBean;
 import com.bean.ExamBean;
 import com.bean.QuestionBean;
 
@@ -32,6 +33,11 @@ public List<ExamBean> getAllExams() {
 	return exams;
 }
 
+public List<CourseBean> getRemainingExams(){
+	List<CourseBean> courses = stmt.query("select * from course where courseid not in(select courseid from exam)",
+			new BeanPropertyRowMapper<CourseBean>(CourseBean.class));
+	return courses;
+}
 
 
 
